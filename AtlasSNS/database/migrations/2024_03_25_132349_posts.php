@@ -19,9 +19,8 @@ class Posts extends Migration
             $table->foreignId('user_id',11)->constrained('users');
             //外部キー制約と型の制約を一度につける
             $table->string('post',400);
-            $table->timestamps('created_at');
-            $table->timestamps('updated_at');
-
+            $table->timestamps('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
             });
         }
 

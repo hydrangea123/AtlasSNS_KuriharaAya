@@ -18,8 +18,8 @@ class Follows extends Migration
             $table->increments('id',11);  //PRIMARY
             $table->string('following_id',11);
             $table->string('followed_id',11);
-            $table->timestamps('created_at');
-            $table->timestamps('updated_at');
+            $table->timestamps('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
 
             });
 

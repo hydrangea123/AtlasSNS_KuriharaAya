@@ -21,8 +21,8 @@ class Users extends Migration
             $table->string('password',255);
             $table->string('bio',400)->nullable();
             $table->string('images',255)->default('/public/images/icons/icon1.png');
-            $table->timestamps('created_at');
-            $table->timestamps('updated_at');
+           $table->timestamps('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
 
             });
         }
