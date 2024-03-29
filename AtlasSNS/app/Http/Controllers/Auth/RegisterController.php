@@ -52,12 +52,13 @@ class RegisterController extends Controller
                 'password' => bcrypt($password),
             ]);
 
-            return redirect('added');
+            return redirect('auth/login');
         }
         return view('auth.register');
     }
 
-    public function added(){
-        return view('auth.added');
+    public function index(){
+         $users = User::get(); //Userモデル（usersテーブル）からレコード情報を取得
+        return view('auth.index',['users'=>$users]);
     }
 }

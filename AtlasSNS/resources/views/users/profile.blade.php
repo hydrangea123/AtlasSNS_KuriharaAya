@@ -1,7 +1,12 @@
 @extends('layouts.login')
 
-@section('content')
 
 
 
-@endsection
+  @section('content')
+
+
+
+  @endsection
+
+</html>

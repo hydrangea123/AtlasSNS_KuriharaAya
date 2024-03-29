@@ -14,15 +14,13 @@ class Follows extends Migration
     public function up()
     {
         //
-         Schema::create('posts', function (Blueprint $table) {
+         Schema::create('follows', function (Blueprint $table) {
             $table->increments('id',11);  //PRIMARY
             $table->string('following_id',11);
             $table->string('followed_id',11);
-            $table->timestamps('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamps('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
-
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
             });
-
 
     }
 

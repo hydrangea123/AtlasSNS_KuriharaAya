@@ -17,12 +17,12 @@ class Users extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id',11);  //PRIMARY
             $table->string('username',255);  //VARCHAR
-            $table->string('mail_address',255)->uniqe();
+            $table->string('mail_address',255)->unique();
             $table->string('password',255);
             $table->string('bio',400)->nullable();
             $table->string('images',255)->default('/public/images/icons/icon1.png');
-           $table->timestamps('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamps('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+           $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
 
             });
         }
