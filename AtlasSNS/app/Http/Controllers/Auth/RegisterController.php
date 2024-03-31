@@ -22,6 +22,7 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+
     /**
      * Where to redirect users after registration.
      *
@@ -39,22 +40,34 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    //バリデーションルールを設定
     public function register(Request $request){
         if($request->isMethod('post')){
+            $date = $request->all();
+            $validated=$request->validate([
+                'username'=>'required|min:2|max:40',
+                'mail'=>'required|string|email|min:5|max:40',
+                'password'=>'required|alpha_num|min:8|max:20|confirmed',
+                'password_confirmation'=>'required|alpha_num|min:8|max:20'
+            ],);
 
-            $username = $request->input('username');
-            $mail = $request->input('mail');
-            $password = $request->input('password');
 
-            User::create([
-                'username' => $username,
-                'mail' => $mail,
-                'password' => bcrypt($password),
-            ]);
-
-            return redirect('auth/login');
         }
-        return view('auth.register');
+        //入力した値を取得する
+        $username = $request->input('username');
+        $mail = $request->input('mail');
+        $password = $request->input('password');
+
+        //送信後「username」「mail」「password」のデータが格納される
+        User::create([
+            'username' => $username,
+            'mail' => $mail,
+            'password' => bcrypt($password),
+        ]);
+
+        return redirect('auth/added');
+    }
+    return view('auth.register');
     }
 
     public function index(){
