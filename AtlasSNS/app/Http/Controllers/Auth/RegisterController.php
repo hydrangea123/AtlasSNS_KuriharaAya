@@ -72,6 +72,6 @@ class RegisterController extends Controller
 
     public function index(){
          $users = User::get(); //Userモデル（usersテーブル）からレコード情報を取得
-        return view('auth.index',['users'=>$users]);
+        return view('auth.added',['users'=>$users]);
     }
 }

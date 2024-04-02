@@ -7,7 +7,7 @@
 <h2>新規ユーザー登録</h2>
 
 <div>
-{{ Form::label('username') }}
+{{ Form::label('ユーザー名') }}
   <div>
   @if($errors->has('username'))
     @foreach($errors->get('username') as $message)
@@ -19,7 +19,7 @@
 </div>
 
 <div>
-{{ Form::label('mail') }}
+{{ Form::label('メールアドレス') }}
   <div>
     @if($errors->has('mail'))
       @foreach($errors->get('mail') as $message)
@@ -31,7 +31,7 @@
 </div>
 
 <div>
-{{ Form::label('password') }}
+{{ Form::label('パスワード') }}
   <div>
     @if($errors->has('password'))
         @foreach($errors->get('password') as $message)
@@ -39,11 +39,11 @@
         @endforeach
       @endif
   </div>
-{{ Form::text('password',null,['class' => 'input']) }}
+{{ Form::password('password',null,['class' => 'input']) }}
 </div>
 
 <div>
-{{ Form::label('password_confirmation') }}
+{{ Form::label('パスワード確認') }}
   <div>
     @if($errors->has('password_confirmation'))
         @foreach($errors->get('password_confirmation') as $message)
@@ -51,7 +51,7 @@
         @endforeach
       @endif
   </div>
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
+{{ Form::passwor('password_confirmation',null,['class' => 'input']) }}
 </div>
 
 {{ Form::submit('登録') }}
