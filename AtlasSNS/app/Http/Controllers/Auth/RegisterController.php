@@ -66,7 +66,7 @@ class RegisterController extends Controller
         ]);
 
         return redirect('auth/added');
-    }
+
     return view('auth.register');
     }
 
