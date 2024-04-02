@@ -6,12 +6,11 @@
 
 <h2>新規ユーザー登録</h2>
 
-
 <div>
-{{ Form::label('ユーザー名') }}
+{{ Form::label('username') }}
   <div>
-  @if($errors->has('ユーザー名'))
-    @foreach($errors->get('ユーザー名') as $message)
+  @if($errors->has('username'))
+    @foreach($errors->get('username') as $message)
       {{ $message }}<br>
     @endforeach
   @endif
@@ -20,10 +19,10 @@
 </div>
 
 <div>
-{{ Form::label('メールアドレス') }}
+{{ Form::label('mail') }}
   <div>
-    @if($errors->has('メールアドレス'))
-      @foreach($errors->get('メールアドレス') as $message)
+    @if($errors->has('mail'))
+      @foreach($errors->get('mail') as $message)
         {{ $message }}<br>
       @endforeach
     @endif
@@ -32,10 +31,10 @@
 </div>
 
 <div>
-{{ Form::label('パスワード') }}
+{{ Form::label('password') }}
   <div>
-    @if($errors->has('パスワード'))
-        @foreach($errors->get('パスワード') as $message)
+    @if($errors->has('password'))
+        @foreach($errors->get('password') as $message)
           {{ $message }}<br>
         @endforeach
       @endif
@@ -44,10 +43,10 @@
 </div>
 
 <div>
-{{ Form::label('パスワード確認') }}
+{{ Form::label('password_confirmation') }}
   <div>
-    @if($errors->has('パスワード確認'))
-        @foreach($errors->get('パスワード確認') as $message)
+    @if($errors->has('password_confirmation'))
+        @foreach($errors->get('password_confirmation') as $message)
           {{ $message }}<br>
         @endforeach
       @endif
