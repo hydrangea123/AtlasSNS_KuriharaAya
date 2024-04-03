@@ -10,9 +10,7 @@
 {{ Form::label('ユーザー名') }}
   <div>
   @if($errors->has('username'))
-    @foreach($errors->get('username') as $message)
-      {{ $message }}<br>
-    @endforeach
+      <p>{{ $errors->first('username') }}</p>
   @endif
   </div>
 {{ Form::text('username',null,['class' => 'input']) }}
@@ -22,9 +20,7 @@
 {{ Form::label('メールアドレス') }}
   <div>
     @if($errors->has('mail'))
-      @foreach($errors->get('mail') as $message)
-        {{ $message }}<br>
-      @endforeach
+      <p>{{ $errors->first('mail') }}</p>
     @endif
   </div>
 {{ Form::text('mail',null,['class' => 'input']) }}
@@ -34,10 +30,8 @@
 {{ Form::label('パスワード') }}
   <div>
     @if($errors->has('password'))
-        @foreach($errors->get('password') as $message)
-          {{ $message }}<br>
-        @endforeach
-      @endif
+      <p>{{ $errors->first('password') }}</p>
+    @endif
   </div>
 {{ Form::password('password',null,['class' => 'input']) }}
 </div>
@@ -46,12 +40,10 @@
 {{ Form::label('パスワード確認') }}
   <div>
     @if($errors->has('password_confirmation'))
-        @foreach($errors->get('password_confirmation') as $message)
-          {{ $message }}<br>
-        @endforeach
-      @endif
+      <p>{{ $errors->first('password_confirmation') }}</p>
+    @endif
   </div>
-{{ Form::passwor('password_confirmation',null,['class' => 'input']) }}
+{{ Form::password('password_confirmation',null,['class' => 'input']) }}
 </div>
 
 {{ Form::submit('登録') }}
