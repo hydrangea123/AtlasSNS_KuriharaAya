@@ -22,11 +22,11 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+        <h1><a href="/top"><img src="/images/atlas.png"></a></h1>
 
 
                     <p>{{ Auth::user()->username }}さん</p>
-                    <img src="images/arrow.png"></p>
+                    <img src="/images/icon1.png"></p>
 
                 <div class=accordion>
                     <button type="button" class="menu-btn">
