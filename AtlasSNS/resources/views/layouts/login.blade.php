@@ -22,19 +22,25 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="posts.index"><img src="images/atlas.png"></a></h1>
-            <div id="">
-                <div id="">
+        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+
 
                     <p>{{ Auth::user()->username }}さん</p>
                     <img src="images/arrow.png"></p>
-                <div>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
-            </div>
+
+                <div class=accordion>
+                    <button type="button" class="menu-btn">
+                        <span class="inner"></span>
+                    </button>
+
+                    <nav>
+                        <ul>
+                            <li><a href="/top">HOME</a></li>
+                            <li><a href="/profile">プロフィール編集</a></li>
+                            <li><a href="/login">ログアウト</a></li>
+                        </ul>
+                    </nav>
+                </div>
         </div>
     </header>
     <div id="row">
@@ -57,6 +63,7 @@
             </div>
             <p class="btn"><a href="">ユーザー検索</a></p>
         </div>
+
     </div>
     <footer>
     </footer>
