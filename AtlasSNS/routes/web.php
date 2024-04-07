@@ -33,11 +33,15 @@ Route::post('/auth.added', 'Auth\RegisterController@index');
 
 
 //ログイン中のページ
+//アクセス制限
+//Route::group(['middleware' => 'loginUserCheck'], function() {
 Route::get('/top','PostsController@index');
-
+Route::post('/top','PostsController@index');
 Route::get('/profile','UsersController@profile');
-
+Route::post('/profile','UsersController@profile');
 Route::get('/search','UsersController@index');
-
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
+Route::get('/follower-profile','profileController@index');
+
+//});

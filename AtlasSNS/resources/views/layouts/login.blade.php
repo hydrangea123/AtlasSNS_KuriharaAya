@@ -25,7 +25,8 @@
         <h1><a href="posts.index"><img src="images/atlas.png"></a></h1>
             <div id="">
                 <div id="">
-                    <p>{{ $user->username }}さん</p>
+
+                    <p>{{ Auth::user()->username }}さん</p>
                     <img src="images/arrow.png"></p>
                 <div>
                 <ul>

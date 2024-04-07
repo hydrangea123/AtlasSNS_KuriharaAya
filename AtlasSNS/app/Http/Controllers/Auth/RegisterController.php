@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -51,12 +52,11 @@ class RegisterController extends Controller
                 'password_confirmation'=>'required|alpha_num|min:8|max:20'
             ],);
 
-
-
         //入力した値を取得する
         $username = $request->input('username');
         $mail = $request->input('mail');
         $password = $request->input('password');
+        $request->session()->put('username',$username);
 
         //送信後「username」「mail」「password」のデータが格納される
         User::create([
@@ -70,7 +70,7 @@ class RegisterController extends Controller
     return view('auth.register');
     }
 
-    public function index(){
+    public function added(){
          $users = User::get(); //Userモデル（usersテーブル）からレコード情報を取得
         return view('auth.added',['users'=>$users]);
     }
