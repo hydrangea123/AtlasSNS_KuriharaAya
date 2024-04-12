@@ -19,27 +19,29 @@
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="js/script.js"></script>
+
 </head>
 <body>
     <header>
-        <div id = "head">
-        <h1><a href="/top"><img src="/images/atlas.png" width=130px></a></h1>
-            <p>{{ Auth::user()->username }}&nbsp;さん</p>
+        <div class="header-left">
+            <h1><a href="/top"><img src="/images/atlas.png" width=130px></a></h1>
+        </div>
 
+        <div class="header-right">
+            <div><p style="color:#fff">{{ Auth::user()->username }}&nbsp;さん</p></div>
                 <div class=accordion>
                     <button type="button" class="menu-btn">
                         <span class="inn"></span>
                     </button>
-                        <nav class="menu">
-                            <ul>
-                                <li><a href="/top">HOME</a></li>
-                                <li><a href="/profile">プロフィール編集</a></li>
-                                <li><a href="/logout">ログアウト</a></li>
-                            </ul>
-                        </nav>
+                   <nav class="menu">
+                       <ul>
+                           <li><a href="/top">HOME</a></li>
+                           <li><a href="/profile">プロフィール編集</a></li>
+                           <li><a href="/logout">ログアウト</a></li>
+                       </ul>
+                   </nav>
                 </div>
-                    <img src="/images/icon1.png" class="icon"></p>
+            <div><img src="/images/icon1.png" class="icon"></div>
         </div>
     </header>
 
@@ -67,7 +69,6 @@
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
