@@ -18,31 +18,31 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="/images/atlas.png"></a></h1>
-
-
-                    <p>{{ Auth::user()->username }}さん</p>
-                    <img src="/images/icon1.png"></p>
+        <h1><a href="/top"><img src="/images/atlas.png" width=130px></a></h1>
+            <p>{{ Auth::user()->username }}&nbsp;さん</p>
 
                 <div class=accordion>
                     <button type="button" class="menu-btn">
-                        <span class="inner"></span>
+                        <span class="inn"></span>
                     </button>
-
-                    <nav>
-                        <ul>
-                            <li><a href="/top">HOME</a></li>
-                            <li><a href="/profile">プロフィール編集</a></li>
-                            <li><a href="/login">ログアウト</a></li>
-                        </ul>
-                    </nav>
+                        <nav class="menu">
+                            <ul>
+                                <li><a href="/top">HOME</a></li>
+                                <li><a href="/profile">プロフィール編集</a></li>
+                                <li><a href="/logout">ログアウト</a></li>
+                            </ul>
+                        </nav>
                 </div>
+                    <img src="/images/icon1.png" class="icon"></p>
         </div>
     </header>
+
     <div id="row">
         <div id="container">
             @yield('content')

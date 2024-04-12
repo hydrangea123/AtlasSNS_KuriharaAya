@@ -20,7 +20,7 @@
 
 
 //ログアウト中のページ
-Route::get('/login', 'Auth\LoginController@login');
+Route::get('/login', 'Auth\LoginController@login')->name('user.logout');
 Route::post('/login', 'Auth\LoginController@login');
 
 //新規登録のページ
@@ -34,7 +34,7 @@ Route::post('/auth.added', 'Auth\RegisterController@index');
 
 //ログイン中のページ
 //アクセス制限
-//Route::group(['middleware' => 'loginUserCheck'], function() {
+Route::group(['middleware' => 'loginUserCheck'], function() {
 Route::get('/top','PostsController@index');
 Route::post('/top','PostsController@index');
 Route::get('/profile','UsersController@profile');
@@ -44,4 +44,7 @@ Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 Route::get('/follower-profile','profileController@index');
 
-//});
+});
+
+//ログアウト
+Route::get('logout','UsersController@logout');
