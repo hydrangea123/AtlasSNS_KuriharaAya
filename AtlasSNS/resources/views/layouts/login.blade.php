@@ -24,11 +24,11 @@
 <body>
     <header>
         <div class="header-left">
-            <h1><a href="/top"><img src="/images/atlas.png" width=130px></a></h1>
+            <h1><a href="/top"><img src="/images/atlas.png" width=110px></a></h1>
         </div>
 
         <div class="header-right">
-            <div><p style="color:#fff">{{ Auth::user()->username }}&nbsp;さん</p></div>
+            <div><p style="color:#fff; font-size :1.2em">{{ Auth::user()->username }}&nbsp;さん</p></div>
                 <div class=accordion>
                     <button type="button" class="menu-btn">
                         <span class="inn"></span>
@@ -41,7 +41,7 @@
                        </ul>
                    </nav>
                 </div>
-            <div><img src="/images/icon1.png" class="icon"></div>
+            <div><img src="/images/icon1.png" class="icon" width="55px"></div>
         </div>
     </header>
 
