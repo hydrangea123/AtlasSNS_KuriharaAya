@@ -29,7 +29,7 @@
 
         <div class="header-right">
             <div><p style="color:#fff; font-size :1.2em">{{ Auth::user()->username }}&nbsp;さん</p></div>
-                <div class=accordion>
+                <div class="accordion">
                     <button type="button" class="menu-btn">
                         <span class="inn"></span>
                     </button>
@@ -41,6 +41,7 @@
                        </ul>
                    </nav>
                 </div>
+
             <div><img src="/images/icon1.png" class="icon" width="55px"></div>
         </div>
     </header>
@@ -56,14 +57,14 @@
                 <p>フォロー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
+                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
 
     </div>
