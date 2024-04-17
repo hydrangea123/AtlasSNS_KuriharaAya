@@ -30,9 +30,7 @@
         <div class="header-right">
             <div><p style="color:#fff; font-size :1.2em">{{ Auth::user()->username }}&nbsp;さん</p></div>
                 <div class="accordion">
-                    <button type="button" class="menu-btn">
-                        <span class="inn"></span>
-                    </button>
+                    <button type="button" class="menu-btn"></button>
                    <nav class="menu">
                        <ul>
                            <li><a href="/top">HOME</a></li>
@@ -47,12 +45,10 @@
     </header>
 
     <div id="row">
-        <div id="container">
             @yield('content')
-        </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                <p>{{ Auth::user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p>〇〇名</p>
@@ -66,8 +62,9 @@
             </div>
             <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
-
     </div>
+
+
     <footer>
     </footer>
     <script src="js/script.js"></script>
