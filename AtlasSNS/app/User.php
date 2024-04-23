@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //「１対多」の「１」側　→　メソッド名は単数形でbelongsToを使う
+    public function post(){
+        return $this->belongsTo('App\Post');
+    }
 }

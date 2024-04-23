@@ -11,14 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/home', 'HomeController@index')->name('home');
-
-//Auth::routes();
-
-
 //ログアウト中のページ
 Route::get('/login', 'Auth\LoginController@login')->name('user.logout');
 Route::post('/login', 'Auth\LoginController@login');
@@ -48,3 +40,6 @@ Route::get('/follower-profile','profileController@index');
 
 //ログアウト
 Route::get('logout','UsersController@logout');
+
+//つぶやき投稿
+Route::post('posts','PostsController@create');
