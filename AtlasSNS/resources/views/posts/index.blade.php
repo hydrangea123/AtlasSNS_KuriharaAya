@@ -27,13 +27,18 @@
     @endif
 
     <!-- 投稿表示エリア -->
-    @isset($posts)
     @foreach ($posts as $post)
-    <h2>{{ $post->user->username }}</h2>
+
+    <tr>
+    <td>{{ $post->user->username }}</td>
+    <td>{{ $post->post }}</td>
+    <td>{{ $post->created_at }}</td>
+    {!! Form::open(['url' => '/edit'],['id'=>$post->post]) !!}
+    <td><input type="image" src="/images/edit.png" alt="編集ボタン" width="40px" class="edit-btn" ></td>
+    {!! Form::open(['url' => '/destroy'],['id'=>$post->post]) !!}
+    <td><input type="image" src="/images/trash.png" alt="削除ボタン" width="40px" class="trash-btn" onmouseover="this.src='/images/trash-h.png'" onmouseout="this.src='/images/trash.png'" whdth='40px'></td>
+    </tr>
     <br><hr>
     @endforeach
-    @endisset
-
 </div>
-
 @endsection

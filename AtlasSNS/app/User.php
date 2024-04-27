@@ -14,6 +14,8 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table = 'users';
+
     protected $fillable = [
         'username', 'mail', 'password',
     ];
@@ -27,8 +29,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    //「１対多」の「１」側　→　メソッド名は単数形でbelongsToを使う
-    public function post(){
-        return $this->belongsTo('App\Post');
+     //「１対多」の「多」側　→　メソッド名は複数形、相手側でhasManyを使う
+    public function posts(){
+        return $this->hasMany('App\Post');
     }
 }

@@ -10,8 +10,9 @@ class PostsController extends Controller
 {
     //indexページの表示
     public function index(){
-        $post = Post::get(); //全データの取り出し
-        return view('posts.index',["post" => $post]); //blade内で使用するための記述
+        $posts = Post::with('user')->get();
+        //with('')でリレーションしたいテーブル名を記述すると、postとuserの全データの取り出し
+        return view('posts.index',["posts" => $posts]); //blade内で使用するための記述
 }
 
     //投稿された内容を表示するページ
@@ -30,7 +31,22 @@ class PostsController extends Controller
     //postsテーブルにの投稿内容を入れる
 
     $post = Post::all(); //全データの取り出し
-    return view('posts.index',["post => $post"]); //postにデータを渡す
+    return view('posts.index',["post" => $post]); //postにデータを渡す
 
 }
+
+    //編集処理
+    public function edit(Request $request, $id){
+        $post = Post::find($id);
+        $edit = $this->post->edit($request, $post);
+        return redirect()->route('top');
+    }
+
+    //削除機能
+     public function destroy($id){
+        $item =  Post::findOrFail($id);
+        $item->delete();
+        return redirect('top');
+    }
+
 }
