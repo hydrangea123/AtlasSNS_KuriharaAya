@@ -35,8 +35,12 @@
     <td>{{ $post->created_at }}</td>
     {!! Form::open(['url' => '/edit'],['id'=>$post->post]) !!}
     <td><input type="image" src="/images/edit.png" alt="編集ボタン" width="40px" class="edit-btn" ></td>
-    {!! Form::open(['url' => '/destroy'],['id'=>$post->post]) !!}
-    <td><input type="image" src="/images/trash.png" alt="削除ボタン" width="40px" class="trash-btn" onmouseover="this.src='/images/trash-h.png'" onmouseout="this.src='/images/trash.png'" whdth='40px'></td>
+    <!-- {!! Form::open(['url' => '/destroy'],['id'=>$post->id]) !!} -->
+    <form action="{{ route('/destroy', $post->id) }}" method="post">
+        @csrf
+        @method('DELETE')
+    <td><input type="image" src="/images/trash.png" alt="削除ボタン" width="40px" name="destroy" onmouseover="this.src='/images/trash-h.png'" onmouseout="this.src='/images/trash.png'" whdth='40px' onClick="delete_alert(event);return false;"></td>
+     </form>
     </tr>
     <br><hr>
     @endforeach

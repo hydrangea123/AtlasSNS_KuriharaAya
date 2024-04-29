@@ -45,7 +45,7 @@ Route::get('logout','UsersController@logout');
 Route::post('posts','PostsController@create');
 
 //編集機能
-Route::get('/edit/{id}', [PostController::class, 'edit'])->name('post.edit');
+Route::get('/edit/{id}', PostController::class.'@edit')->name('post.edit');
 
 //削除の更新処理
-Route::post('/destroy/{id}',[PostsController::class, 'destroy'])->name('post.destroy');
+Route::get('/destroy/{id}', PostsController::class.'@destroy')->name('post.destroy');
