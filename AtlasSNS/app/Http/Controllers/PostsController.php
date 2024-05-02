@@ -44,9 +44,9 @@ class PostsController extends Controller
 
     //削除機能
      public function destroy($id){
-        $item =  Post::findOrFail($id);
-        $item->delete();
-        return redirect('top');
+        $post = Post::find($id);
+        $post->delete();
+        return redirect()->route('top');
     }
 
 }

@@ -48,4 +48,4 @@ Route::post('posts','PostsController@create');
 Route::get('/edit/{id}', PostController::class.'@edit')->name('post.edit');
 
 //削除の更新処理
-Route::get('/destroy/{id}', PostsController::class.'@destroy')->name('post.destroy');
+Route::post('destroy/{id}', PostsController::class.'@destroy')->name('destroy');
