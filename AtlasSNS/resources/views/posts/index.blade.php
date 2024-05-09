@@ -2,63 +2,59 @@
 
 @section('content')
 <div class="form-area">
+    <div class="form-flex">
+        <img src="/images/icon1.png" width="55px" class="post-icon">
+        {!! Form::open(['url' => '/posts']) !!}
 
-    <img src="/images/icon1.png" width="55px" class="post-icon">
-    {!! Form::open(['url' => '/posts']) !!}
-
-    {{ Form::textarea('post',null,['class' => 'post-area','placeholder' => '投稿内容を入力してください。']) }}
+        {{ Form::textarea('post',null,['class' => 'post-area','placeholder' => '投稿内容を入力してください。']) }}
 
     <input type="image" src="/images/post.png" alt="送信ボタン" width="40px" class="post-btn">
-
+</div>
 </div>
 
 <div class="posted-area">
     <img src="/images/icon1.png" width="55px" class="post-icon">
     <p>{{ Auth::user()->username }}</p>
-
-    <!-- エラーメッセージエリア -->
-    @if($errors->any())
-    <h2>エラーメッセージ</h2>
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-    @endif
 </div>
     <!-- 投稿表示エリア -->
+    <table>
     @foreach ($posts as $post)
 
     <tr>
     <td>{{ $post->user->username }}</td>
     <td>{{ $post->post }}</td>
     <td>{{ $post->created_at }}</td>
+    <td>
+         <!-- 投稿の編集ボタン -->
+            <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}">
+                <input type="image" src="/images/edit.png" alt="編集ボタン" width="40px">
+            </a>
+    </td>
 
-    <form class="delete" action="{{ route('destroy', $post->id) }}" method="post">
-        @csrf
-    <td><input type="image" src="/images/trash.png" alt="削除ボタン" width="40px" name="destroy" onmouseover="this.src='/images/trash-h.png'" onmouseout="this.src='/images/trash.png'" whdth='40px' onClick="return confirm('この投稿を削除します。よろしいでしょうか？')"></td>
-    <input type="hidden" name="_method" valu="delete">
-     </form>
+    <td>
+        <form class="delete" action="{{ route('destroy', $post->id) }}" method="post">
+            @csrf
+            <input type="image" src="/images/trash.png" alt="削除ボタン" width="40px" name="destroy" onmouseover="this.src='/images/trash-h.png'" onmouseout="this.src='/images/trash.png'" width="40px" onClick="return confirm('この投稿を削除します。よろしいでしょうか？')">
+        </form>
+     </td>
     </tr>
-    <br><hr>
     @endforeach
+    </table>
+
+    <!-- モーダルの中身 -->
+    <div class="modal js-modal">
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+            <form action="{{ route('edit') }}" method="post">
+                <textarea name="upPost" class="modal_post"></textarea>
+                <input type="hidden" name="modal_id" class="modal_id" value="">
+                <input type="image" src="/images/edit.png" alt="編集ボタン" width="40px" class="modal-submit">
+
+                {{ csrf_field() }}
+            </form>
+        </div>
+    </div>
+
+
 
 @endsection
-
-<!-- modalにtitleとURLのデータを渡すにはJSが必要 -->
-<script>
-    window.onload = function() {
-        $('#Modal').on('shown.bs.modal', function (event) {
-            var button = $(event.relatedTarget);//モーダルを呼び出すときに使われたボタンを取得
-            var title = button.data('title');//data-titleの値を取得
-            var url = button.data('url');//data-urlの値を取得
-            var modal = $(this);//モーダルを取得
-
-            //Ajaxの処理はここに
-            //modal-bodyのpタグにtextメソッド内を表示
-            modal.find('.modal-body p').eq(0).text("本当に"+title+"を削除しますか?");
-            //formタグのaction属性にurlのデータ渡す
-            modal.find('form').attr('action',url);
-        });
-    }
-</script>

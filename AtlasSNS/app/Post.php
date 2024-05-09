@@ -9,9 +9,6 @@ class Post extends Model
     //モデルに関連付けるテーブル
     protected $table = 'posts';
 
-    //テーブルに関連付ける主キー
-    protected $primaryKey = 'user_id';
-
     //登録・更新可能なカラムの指定
     protected $fillable =['user_id','post'];
 
@@ -26,8 +23,16 @@ class Post extends Model
         return User::all();
     }
 
-    //更新処理 fillト->save()の組み合わせで更新処理ができる
-    public function updateUser($request, $post){
+    //バリデーション機能
+    public function rules()
+       {
+           return [
+            'upPost' => 'required|min:1|max:150'
+             ];
+       }
+
+    //更新処理 fillと->save()の組み合わせで更新処理ができる
+    public function updatePost($request, $post){
         $result = $user->fill([
             'post' => $request->post
         ])->save();

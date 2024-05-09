@@ -35,18 +35,34 @@ class PostsController extends Controller
 
 }
 
+
     //編集処理
-    public function edit(Request $request, $id){
-        $post = Post::find($id);
-        $edit = $this->post->edit($request, $post);
-        return redirect()->route('top');
+    public function edit(Request $request){
+
+        $id = $request->input('modal_id');
+        $up_post = $request->input('upPost');
+
+        Post::where('id', $id)->update([
+            'post' => $up_post,
+        ]);
+
+        return redirect('/top');
     }
+
+    public function sampleShow(SampleFormRequest $request)
+    {
+        $validated = $request->validated();
+
+        return redirect('/top');
+    }
+
+
 
     //削除機能
      public function destroy($id){
         $post = Post::find($id);
         $post->delete();
-        return redirect()->route('top');
+        return redirect('/top');
     }
 
 }
