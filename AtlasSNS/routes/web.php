@@ -49,3 +49,6 @@ Route::post('/edit', PostsController::class.'@edit')->name('edit');
 
 //削除の更新処理
 Route::post('destroy/{id}', PostsController::class.'@destroy')->name('destroy');
+
+//ユーザー検索
+Route::post('', 'Controller@destroy');

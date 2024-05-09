@@ -255,3 +255,9 @@ textarea {
 .search-btn {
     margin-top: 25px;
 }
+
+/* 検索 */
+.search-area {
+    border-bottom: solid 8px;
+    border-bottom-color: lightgray;
+}
