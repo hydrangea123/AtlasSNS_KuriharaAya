@@ -1,10 +1,89 @@
 @charset "UTF-8";
 
-html{
+html {
     height: 100%;
 }
 
-body{
-    height: 100%;
-    background: #186AC9;
+body {
+    width: 100%;
+    height: inherit;
+    background-image: linear-gradient(rgba(37, 114, 241, 1) 32%,
+            rgba(242, 243, 6, 1));
+    text-align: center;
+    margin-top: 150px;
+}
+
+h1 a img {
+    width: 180px;
+}
+
+header p {
+    color: white;
+    font-weight: 900;
+    font-size: 32px;
+    margin-top: 8px;
+}
+
+#container {
+    margin-top: 100px;
+}
+
+.inner {
+    z-index: 2;
+}
+
+.inner p:first-child {
+    font-size: 120%;
+}
+
+.inner p:last-child {
+    margin-top: 20px;
+    text-decoration: underline;
+
+}
+
+form {
+
+    color: white;
+    display: inline-block;
+    margin-bottom: 20px;
+    background-color: gray;
+    opacity: 0.5;
+    margin: 0 auto;
+    padding: 35px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+form a {
+    color: white;
+}
+
+.form {
+    text-align: left;
+    padding: 10px;
+
+}
+
+.box {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+}
+
+input,
+button {
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+    height: 40px;
+}
+
+.button {
+    color: wheat;
+    background-color: crimson;
+    font-size: 110%;
 }
