@@ -51,4 +51,4 @@ Route::post('/edit', PostsController::class.'@edit')->name('edit');
 Route::post('destroy/{id}', PostsController::class.'@destroy')->name('destroy');
 
 //ユーザー検索
-Route::post('', 'Controller@destroy');
+Route::post('/search', 'UsersController@search');
