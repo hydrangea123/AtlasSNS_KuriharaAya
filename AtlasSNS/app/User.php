@@ -33,4 +33,15 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany('App\Post');
     }
+    //  「多対多」フォローしている側
+    //belongsToMany('関係するモデルの場所',
+    //'中間テーブルの名前',　'中間テーブル外部キー名', '中間テーブル外部キー名')
+    public function following(){
+        return $this->belongsToMany('users','follow','following_id','followed_id');
+    }
+
+    // 「多対多」フォローされている側
+    public function followed(){
+        return $this->belondsToMany('users','follow','followed_id','following_id');
+    }
 }

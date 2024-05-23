@@ -31,7 +31,7 @@ class PostsController extends Controller
     //postsテーブルにの投稿内容を入れる
 
     $post = Post::all(); //全データの取り出し
-    return view('posts.index',["post" => $post]); //postにデータを渡す
+        return redirect('/top'); 
 
 }
 

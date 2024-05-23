@@ -33,8 +33,8 @@
 
     <td>
         <form class="delete" action="{{ route('destroy', $post->id) }}" method="post">
-            @csrf
             <input type="image" src="/images/trash.png" alt="削除ボタン" width="40px" name="destroy" onmouseover="this.src='/images/trash-h.png'" onmouseout="this.src='/images/trash.png'" width="40px" onClick="return confirm('この投稿を削除します。よろしいでしょうか？')">
+            @csrf
         </form>
      </td>
     </tr>

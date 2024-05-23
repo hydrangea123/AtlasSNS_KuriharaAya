@@ -1,9 +1,5 @@
 @charset "utf-8";
 
-html {}
-
-body {}
-
 #container {
     width: 100%;
 }
@@ -100,6 +96,7 @@ h1 {
     pointer-events: none;
     transform: translateY(-30px);
     border: solid 2px navy;
+    }
 
     li {
         height: 60px;
@@ -120,7 +117,7 @@ h1 {
     li:hover a {
         color: #fff;
     }
-}
+
 
 .menu.is-open {
     opacity: 1;
