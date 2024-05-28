@@ -14,12 +14,29 @@
 
  <!-- 検索結果表示エリア -->
   @foreach ($users as $user)
-  @if ($user->id !== Auth::user()->id)
-  <div class="userSearchList">
-    <!-- イメージ画像 -->
-    <p>{{ $user->username }}</p>
-  </div>
-  @endif
+    @if ($user->id !== Auth::user()->id)
+    <div class="userSearchList">
+      <!-- イメージ画像 -->
+      <p>{{ $user->username }}</p>
+    </div>
+  
+    <div>
+      @if(auth()->user()->isFollowing($user->id))
+        <form action="{{ route('unfollow',['user' => $user->id]) }}" method="post">
+          {{ csrf_field() }}
+          {{ method_field('delete') }}
+
+          <button type="submit" class="btn btn-danger">フォロー解除</button>
+        </form>
+      @else
+      <form action="{{ route('follow',['user' => $user->id] )}}" method="post">
+        {{ csrf_field() }}
+
+        <button type="submit" class="btn btn-primary">フォローする</button>
+      </form>
+      @endif
+    </div>
+    @endif
   @endforeach
 
 @endsection

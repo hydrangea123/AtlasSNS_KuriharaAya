@@ -13,11 +13,6 @@ class UsersController extends Controller
         return view('users.profile', [ 'user' => $user ]);
     }
 
-    public function index(){
-        $users = User::all();
-        return view('users.search',['users'=>$users]);
-    }
-
 
     public function search(Request $request){
         $keyword =$request->input('keyword');

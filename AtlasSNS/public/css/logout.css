@@ -10,7 +10,7 @@ body {
     background-image: linear-gradient(rgba(37, 114, 241, 1) 32%,
             rgba(242, 243, 6, 1));
     text-align: center;
-    margin-top: 150px;
+    margin-top: 75px;
 }
 
 h1 a img {
@@ -74,8 +74,7 @@ label {
     display: block;
 }
 
-input,
-button {
+input{
     margin-top: 5px;
     border: none;
     border-radius: 5px;
@@ -83,8 +82,51 @@ button {
     height: 40px;
 }
 
+button{
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.btn_right{
+    width: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: 10px;
+
+}
+
+.add_btn {
+    width: 65%;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    display: block;
+    margin: 40px auto 0 auto;
+    line-height: 1.3em;
+
+}
+
+.add_btn a{
+    position: relative;
+    top: 9px;
+}
+
 .button {
     color: wheat;
     background-color: crimson;
     font-size: 110%;
+    
 }
+
+.add_top{
+    margin-bottom: 40px;
+    font-weight: bold;
+    line-height: 1.3em;
+
+}
+
+
+

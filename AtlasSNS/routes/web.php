@@ -31,7 +31,6 @@ Route::get('/top','PostsController@index');
 Route::post('/top','PostsController@index');
 Route::get('/profile','UsersController@profile');
 Route::post('/profile','UsersController@profile');
-Route::get('/search','UsersController@index');
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 Route::get('/follower-profile','profileController@index');
@@ -52,3 +51,9 @@ Route::post('destroy/{id}', PostsController::class.'@destroy')->name('destroy');
 
 //ユーザー検索
 Route::post('/search', 'UsersController@search');
+Route::get('/search', 'UsersController@search');
+
+//フォロー、フォロー解除
+Route::post('/search/{user}/follow', 'FollowsController@follow')->name('follow');
+Route::delete('/search/{user}/unfollow', 'FollowsController@unfollow')->name('unfollow');
+
