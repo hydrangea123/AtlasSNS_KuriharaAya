@@ -13,7 +13,7 @@ class UsersController extends Controller
         return view('users.profile', [ 'user' => $user ]);
     }
 
-
+    //検索機能
     public function search(Request $request){
         $keyword =$request->input('keyword');
 
@@ -31,4 +31,5 @@ class UsersController extends Controller
         Auth::logout();
         return redirect()->route('user.logout');
     }
+
 }

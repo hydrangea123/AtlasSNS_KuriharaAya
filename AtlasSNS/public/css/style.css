@@ -232,6 +232,7 @@ textarea {
     margin-left: auto;
     margin-right: 0;
     width: 10em;
+    border: none;
 }
 
 .btn a {
@@ -271,4 +272,16 @@ textarea {
     width: 46px;
     height: 46px;
     border-radius: 3px;
+}
+
+/* フォロー機能 */
+.btn_follow{
+    background-color: rgb(214, 75, 75);
+    color: #fff;
+}
+
+.btn_folloing{
+    background-color: rgba(92, 184, 240, 0.819);
+    color: #fff;
+
 }

@@ -29,6 +29,8 @@ Route::post('/auth.added', 'Auth\RegisterController@index');
 Route::group(['middleware' => 'loginUserCheck'], function() {
 Route::get('/top','PostsController@index');
 Route::post('/top','PostsController@index');
+Route::post('/top','FollowsController@show');
+
 Route::get('/profile','UsersController@profile');
 Route::post('/profile','UsersController@profile');
 Route::get('/follow-list','PostsController@index');
