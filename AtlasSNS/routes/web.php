@@ -29,8 +29,8 @@ Route::post('/auth.added', 'Auth\RegisterController@index');
 Route::group(['middleware' => 'loginUserCheck'], function() {
 Route::get('/top','PostsController@index');
 Route::post('/top','PostsController@index');
-Route::get('/profile','UsersController@profile');
-Route::post('/profile','UsersController@profile');
+Route::get('/profile/edit','UsersController@profile')->name('profile.edit');
+Route::post('/profile/edit','UsersController@update')->name('profile.update');
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 Route::get('/follower-profile','profileController@index');
@@ -56,4 +56,5 @@ Route::get('/search', 'UsersController@search');
 //フォロー、フォロー解除
 Route::post('/search/{user}/follow', 'FollowsController@follow')->name('follow');
 Route::delete('/search/{user}/unfollow', 'FollowsController@unfollow')->name('unfollow');
+
 

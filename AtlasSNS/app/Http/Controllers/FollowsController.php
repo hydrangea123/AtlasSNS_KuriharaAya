@@ -44,22 +44,5 @@ class FollowsController extends Controller
         }
     }
 
-    
-    //フォロー数、フォロワー数の表示
-    //public function show(Follow $follow){
-    //    $login_user = auth()->user();
-    //    $is_following = $login_user->isFollowing($login_user->id);
-    //    $is_followed = $login_user->isFollowed($login_user->id);
-    //    $follow_count = $follow->getFollowCount($login_user->id);
-    //    $follower_count = $follower->getFollowerCount($login_user->id);
-//
-    //    return view('/top',[
-    //        'user'            => $user,
-    //        'is_following'    => $is_following,
-    //        'is_followed'     => $is_followed,
-    //        'follow_count'    => $follow_count,
-    //        'follower_count'  => $follower_count
-    //    ]);
-    //  }
     }
 
