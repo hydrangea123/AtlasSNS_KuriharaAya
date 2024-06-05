@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -68,4 +70,5 @@ class User extends Authenticatable
      {
          return (boolean) $this->following()->where('following_id',$user_id)->first(['id']);
      }
-}
+
+    }
