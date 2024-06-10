@@ -29,8 +29,9 @@ Route::post('/auth.added', 'Auth\RegisterController@index');
 Route::group(['middleware' => 'loginUserCheck'], function() {
 Route::get('/top','PostsController@index');
 Route::post('/top','PostsController@index');
-Route::get('/profile/edit','UsersController@profile')->name('profile.edit');
-Route::post('/profile/edit','UsersController@update')->name('profile.update');
+Route::post('/profile','UsersController@view')->name('profile.view');
+Route::get('/profile','UsersController@view')->name('profile.view');
+Route::post('/profile/update','UsersController@update')->name('profile.update');
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 Route::get('/follower-profile','profileController@index');

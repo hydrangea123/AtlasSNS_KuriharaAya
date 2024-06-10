@@ -27,70 +27,53 @@ class UsersController extends Controller
         return redirect()->route('user.logout');
     }
 
-    //プロフィールのバリデーション設定
-    public function updateProfilePicture(Request $request)
-    {
-        $request->validate([
-            'profile_picture' => 'required|image|mimes:jpg,png,bmp,gif,svg',
-        ]);
-    
-
-    $user = Auth::user();
-
-    //古いプロフィール画像を削除
-    if($user->profile_picture) {
-        Storage::delete('public/profile_pictures/' . $user->profile_picture);
-    }
-
-    //新しい画像を保存
-    $fileName = time() . '.' . $request->profile_picture->extension();
-    $request->profile_picture->storeAs('public/profile_pictures',$fileName);
-
-    //ユーザーのプロフィール画像を更新
-    $user->profile_picture = $fileName;
-    $user->save();
-
-    return back()->with('success','プロフィール画像が更新されました。');
-    }
-
-     //プロフィール編集
-     public function profile(){
+   //プロフィール編集
+   public function view(){
         $user = Auth::user();
-       return view('users.profile', [ 'user' => $user ]);
+       return view('users.profile', compact('user'));
    }
 
    public function update(Request $request)
    {
-    $request->validate([
-        'username'                => 'required|string|min:2|max:12',
-        'mailadress'              => 'required|min:5|max:40|email|unique:users,mail',
-        'newpassword'             => 'required|alpha_num|min:8|max:20|confirmed',
-        'newpasswordconfirmation' => 'required|alpha_num|min:8|max:20',
-        'bio'                     => 'min:150',
-        'iconimage'               => 'mimes:jpg,png,bmp,gif,svg'
-    ]);
+    //$request->validate([
+    //    'username'                => 'required|string|min:2|max:12',
+    //    'mail'                    => 'required|min:5|max:40|email|unique:users,mail',
+    //    'newpassword'             => 'required|alpha_num|min:8|max:20|confirmed',
+    //    'newpasswordconfirmation' => 'required|alpha_num|min:8|max:20',
+    //    'bio'                     => 'min:150|nullable',
+    //    'images'                  => 'mimes:jpg,png,bmp,gif,svg|nullable'
+    //],
+    //[
+    //    'username.required'                => 'ユーザー名は必須です。',
+    //    'mail.required'                    => 'メールアドは必須です。',
+    //    'newpassword.required'             => 'パスワード名は必須です。',
+    //    'newpasswordconfirmation.required' => 'パスワードは必須です。',
+    //    'bio.min'                          => '150文字以内で入力してください。',
+    //    'images.mines'                     => 'jpg,png,bmp,gif,svgの形式で選択してください。'
+    //    
+    //]);
 
     $user = Auth::user();
     $user->username = $request->username;
-    $user->mailadress = $request->mailadress;
-    $user->newpasswoed = bcrypt($request->newpassword);
-    $user->newpasswoedconfirmation = bcrypt($request->newpasswordconfirmation);
+    $user->mail = $request->mail;
+    $user->password = bcrypt($request->password);
     $user->bio = $request->bio;
-    $user->iconimage = $request->iconimage;
 
-
+    //古いプロフィール画像を削除
     if($request->hasFile('images')){
-        if($user->iconimage){
-            Storage::dalete('public/images',$fileName);
+        if($user->images){
+            Storage::dalete('public/images' . $user->images);
         }
 
-        $fileName = time(). '.' . $request->iconimage->extension();
-        $request->iconimage->storeAs('public/images',$fileName);
-        $user->iconimage = $fileName;
+    //新しい画像を保存    
+        $fileName = time(). '.' . $request->images->extension();
+        $request->images->storeAs('public/images', $fileName);
+    
+    //ユーザーのプロフィール画像を更新
+        $user->images = $fileName;
+        $user->save();
+
+        return redirect('/top');
     }
-
-    $user->save();
-
-    return redirect()->route('profile.edit')->with('success','プロフィールが更新されました。');
    }
 }

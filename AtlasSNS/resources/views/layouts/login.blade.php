@@ -28,19 +28,19 @@
         </div>
 
         <div class="header-right">
-            <div><p style="color:#fff; font-size :1.2em">{{ Auth::user()->username }}&nbsp;さん</p></div>
+            <div><p style="color:#fff; font-size :1.2em; margin-right: 35px;">{{ Auth::user()->username }}&nbsp;さん</p></div>
                 <div class="accordion">
                     <button type="button" class="menu-btn"></button>
                    <nav class="menu">
                        <ul>
                            <li><a href="/top">HOME</a></li>
-                           <li><a href="/profile/edit">プロフィール編集</a></li>
+                           <li><a href="/profile">プロフィール編集</a></li>
                            <li><a href="/logout">ログアウト</a></li>
                        </ul>
                    </nav>
                 </div>
 
-            <div><img src="/images/icon1.png" class="icon" width="55px"></div>
+            <div><img src="{{ Auth::user()->images }}" class="icon" width="55px"></div>
         </div>
     </header>
 

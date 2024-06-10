@@ -27,6 +27,7 @@ header a {
     display: flex;
     flex-flow: nowrap;
     justify-content: space-between;
+    height: 100%;
 }
 
 #side-bar {
@@ -284,4 +285,16 @@ textarea {
     background-color: rgba(92, 184, 240, 0.819);
     color: #fff;
 
+}
+
+/* プロフィール編集 */
+.profile_container{
+    margin: 0 auto;
+}
+
+.form-group{
+    margin: 0 auto;
+    font-size: 1.3em;
+    display: flex;
+    align-items: flex-start;
 }
