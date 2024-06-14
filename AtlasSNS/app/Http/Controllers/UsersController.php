@@ -24,7 +24,7 @@ class UsersController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('user.logout');
+        return redirect('/login');
     }
 
    //プロフィール編集
@@ -61,19 +61,18 @@ class UsersController extends Controller
 
     //古いプロフィール画像を削除
     if($request->hasFile('images')){
-        if($user->images){
-            Storage::dalete('public/images' . $user->images);
-        }
-
-    //新しい画像を保存    
+           // Storage::dalete('public/images' . $user->images);
+            //新しい画像を保存    
         $fileName = time(). '.' . $request->images->extension();
+        dd($fileName);
         $request->images->storeAs('public/images', $fileName);
-    
-    //ユーザーのプロフィール画像を更新
+        //ユーザーのプロフィール画像を更新
         $user->images = $fileName;
-        $user->save();
-
-        return redirect('/top');
     }
+
+    $user->save();
+
+    return redirect('/top');
+
    }
 }

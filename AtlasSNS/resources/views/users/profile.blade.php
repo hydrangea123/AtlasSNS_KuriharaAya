@@ -66,9 +66,10 @@
         <input
             type="file"
             id="fileElem"
-            multiple
             accept="image/*"
-            style="display:none" />
+            style="display:none" 
+            name="images"/>
+            
         <button id="fileSelect" type="button">ファイルを選択</button>
 
         <div>

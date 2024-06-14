@@ -13,30 +13,31 @@
 </div>
 
 <div class="posted-area">
-    <img src="/images/icon1.png" width="55px" class="post-icon">
+    <p>{{ Auth::user()->images }}</p>
     <p>{{ Auth::user()->username }}</p>
 </div>
     <!-- 投稿表示エリア -->
     <table>
     @foreach ($posts as $post)
-
     <tr>
-    <td>{{ $post->user->username }}</td>
-    <td>{{ $post->post }}</td>
-    <td>{{ $post->created_at }}</td>
-    <td>
-         <!-- 投稿の編集ボタン -->
+        <td>{{ $post->user->username }}</td>
+        <td>{{ $post->post }}</td>
+        <td>{{ $post->created_at }}</td>
+    
+        <td class="edit_btn">
+            <!-- 投稿の編集ボタン -->
             <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}">
                 <input type="image" src="/images/edit.png" alt="編集ボタン" width="40px">
             </a>
-    </td>
-
-    <td>
-        <form class="delete" action="{{ route('destroy', $post->id) }}" method="post">
-            <input type="image" src="/images/trash.png" alt="削除ボタン" width="40px" name="destroy" onmouseover="this.src='/images/trash-h.png'" onmouseout="this.src='/images/trash.png'" width="40px" onClick="return confirm('この投稿を削除します。よろしいでしょうか？')">
-            @csrf
-        </form>
-     </td>
+        </td>
+    
+        <td>
+            <!--投稿の削除ボタン  -->
+            <form class="delete" action="{{ route('destroy', $post->id) }}" method="post">
+                <input type="image" src="/images/trash.png" alt="削除ボタン" width="40px" name="destroy" onmouseover="this.src='/images/trash-h.png'" onmouseout="this.src='/images/trash.png'" width="40px" onClick="return confirm('この投稿を削除します。よろしいでしょうか？')">
+                @csrf
+            </form>
+        </td>
     </tr>
     @endforeach
     </table>
