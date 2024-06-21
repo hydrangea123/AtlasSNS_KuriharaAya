@@ -40,7 +40,7 @@
                    </nav>
                 </div>
 
-            <div><img src="{{ Auth::user()->images }}" class="icon" width="55px"></div>
+            <div><img src="{{ asset('storage/images/'. Auth::user()->images) }}" alt="icon" class="icon" width="55px"></div>
         </div>
     </header>
 

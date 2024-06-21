@@ -5,6 +5,7 @@ body{
 
 #container {
     width: 100%;
+    border-right: solid 1px;
 }
 
 /* ログイン画面 */
@@ -30,12 +31,13 @@ header a {
     display: flex;
     flex-flow: nowrap;
     justify-content: space-between;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 #side-bar {
     border-left: 1px solid #727272;
     width: 325px;
+    min-height: 100vh;
 }
 
 h1 {
@@ -147,28 +149,61 @@ textarea {
 
 .form-area {
     padding-left: 120px;
-    margin-top: 50px;
-    padding-bottom: 25px;
+    margin-top: 40px;
     border-bottom: solid 8px;
     border-bottom-color: lightgray;
+}
+
+.post-area{
+    margin-left: 50px;
+    position: relative;
+    bottom: 40px;
 }
 
 .post-btn {
     border-radius: 3px;
     height: 40px;
     margin-top: auto;
+    margin-bottom: 42px;
+}
+
+.post_flex{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+    padding: 0 30px 15px 200px;
+    border-bottom: solid 1px #989898;
+
+}
+
+.post_top{
+    position: relative;
+    bottom: 25px;
+}
+
+.form-area-flex{
+    height: 160px;
 }
 
 .form-flex {
     display: flex;
+    justify-content: end;
+    padding-top: 100px;
 }
 
-.post-icon {
-    width: 50px;
-    height: 50px;
+.post_middle{
+    margin-right: 670px;
+}
+
+.post_username{
+    margin-bottom: 15px;
+}
+
+
+.edit_btn{
+    padding-right: 13px;
     position: relative;
-    bottom: 17px;
-    right: 5px;
+    top: 4px
 }
 
 textarea {
@@ -185,18 +220,9 @@ textarea {
     color: gray;
 }
 
-.post_content{
-    display: flex;
-    justify-content: space-between;
-}
 
-.edit_btn{
-    margin-left: 320px;
-    margin-right: 10px;
-    display: block;
-}
 
-/* モーダル */
+/*モーダル */
 .content {
     margin: 0 auto;
     padding: 40px;
@@ -273,7 +299,7 @@ textarea {
 .side-flex p:last-child{
     margin-left: 40px;
 }
-   
+
 .search-btn {
     margin-top: 25px;
     margin-left: auto;
@@ -285,12 +311,32 @@ textarea {
 .search-area {
     border-bottom: solid 8px;
     border-bottom-color: lightgray;
+    padding: 50px 0 50px 50px;
+    display: flex;
 }
 
 .search-area a img {
     width: 46px;
     height: 46px;
     border-radius: 3px;
+}
+
+.search_box{
+    width: 300px;
+    height: 40px;
+}
+
+.search_icon{
+    border-radius: 5px;
+    position: relative;
+    top: 19px;
+    margin-left: 5px;
+}
+
+.search_word{
+    padding-top: 35px;
+    margin-left: 250px;
+    font-size: 20px;
 }
 
 /* フォロー機能 */
@@ -307,7 +353,8 @@ textarea {
 
 /* プロフィール編集 */
 .profile_container{
-    margin: 0 auto;
+    padding-left: 350px;
+    padding-top: 70px;
 }
 
 .form-group{
@@ -315,4 +362,13 @@ textarea {
     font-size: 1.3em;
     display: flex;
     align-items: flex-start;
+    margin-bottom: 60px;
 }
+
+.validation {
+    display: inline;
+    font-size: 0.9rem;
+    color: #FA5C65;
+    margin: 0.3rem;
+    font-weight: bold;
+    }

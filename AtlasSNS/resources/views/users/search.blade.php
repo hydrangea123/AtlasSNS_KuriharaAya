@@ -4,11 +4,11 @@
 <div class="search-area">
   <form action="/search" method="post">
     @csrf
-      <input type="text" name="keyword" id="search" placeholder="ユーザー名">
-      <input type="image" src="/images/search.png" alt="検索ボタン" width="50px">
+      <input type="text" name="keyword" id="search" placeholder="ユーザー名" class="search_box">
+      <input type="image" src="/images/search.png" alt="検索ボタン" width="50px" class="search_icon">
   </form>
   @if($keyword != "")
-    <p>検索ワード：{{ $keyword }}</p>
+    <p class="search_word">検索ワード：{{ $keyword }}</p>
   @endif
 </div>
 
@@ -16,10 +16,10 @@
   @foreach ($users as $user)
     @if ($user->id !== Auth::user()->id)
     <div class="userSearchList">
-      <!-- イメージ画像 -->
+      <p>{{ $user->images }}</p>
       <p>{{ $user->username }}</p>
     </div>
-  
+
     <div>
       @if(auth()->user()->isFollowing($user->id))
         <form action="{{ route('unfollow',['user' => $user->id]) }}" method="post">

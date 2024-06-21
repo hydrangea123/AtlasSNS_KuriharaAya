@@ -12,7 +12,7 @@
 */
 
 //ログアウト中のページ
-Route::get('/login', 'Auth\LoginController@login');
+Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 
 //新規登録のページ
@@ -32,10 +32,10 @@ Route::post('/top','PostsController@index');
 Route::post('/profile','UsersController@view')->name('profile.view');
 Route::get('/profile','UsersController@view')->name('profile.view');
 Route::post('/profile/update','UsersController@update')->name('profile.update');
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+Route::get('/follow-list','PostsController@follow_list');
+Route::get('/follower-list','PostsController@follower_list');
 Route::get('/follower-profile','profileController@index');
-Route::get('logout','UsersController@logout');
+Route::get('/logout','UsersController@logout');
 });
 
 

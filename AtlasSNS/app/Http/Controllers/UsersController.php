@@ -24,7 +24,7 @@ class UsersController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect('/login');
+        return url('/login');
     }
 
    //プロフィール編集
@@ -33,25 +33,41 @@ class UsersController extends Controller
        return view('users.profile', compact('user'));
    }
 
-   public function update(Request $request)
-   {
-    //$request->validate([
-    //    'username'                => 'required|string|min:2|max:12',
-    //    'mail'                    => 'required|min:5|max:40|email|unique:users,mail',
-    //    'newpassword'             => 'required|alpha_num|min:8|max:20|confirmed',
-    //    'newpasswordconfirmation' => 'required|alpha_num|min:8|max:20',
-    //    'bio'                     => 'min:150|nullable',
-    //    'images'                  => 'mimes:jpg,png,bmp,gif,svg|nullable'
-    //],
-    //[
-    //    'username.required'                => 'ユーザー名は必須です。',
-    //    'mail.required'                    => 'メールアドは必須です。',
-    //    'newpassword.required'             => 'パスワード名は必須です。',
-    //    'newpasswordconfirmation.required' => 'パスワードは必須です。',
-    //    'bio.min'                          => '150文字以内で入力してください。',
-    //    'images.mines'                     => 'jpg,png,bmp,gif,svgの形式で選択してください。'
-    //    
-    //]);
+   public function update(Request $request){
+    $validated = $request->validate([
+        'username'                => 'required|string|min:2|max:12',
+        'mail'                    => 'required|min:5|max:40|email|unique:users',
+        'password'                => 'required|alpha_num|min:8|max:20|confirmed',
+        'password_confirmation'   => 'required|alpha_num|min:8|max:20',
+        'bio'                     => 'max:150|nullable',
+        'images'                  => 'mimes:jpg,png,bmp,gif,svg|nullable'
+    ],  $errors = [
+        'username.required'                => 'ユーザー名は必須です',
+        'username.string'                  => '文字列で入力してください',
+        'username.min'                     => '2文字以上で入力してください',
+        'username.max'                     => '12文字以内で入力してください',
+
+        'mail.required'                    => 'メールアドレスは必須です',
+        'mail.min'                         => '5文字以上で入力してください',
+        'mail.max'                         => '40文字以内で入力してください',
+        'mail.email'                       => 'メール形式で入力してください',
+        'mail.unique'                      => 'このメールアドレスはすでに登録されています',
+
+        'password.alpha_num'               => '英数字で入力してください',
+        'password.min'                     => '8文字以上で入力してください',
+        'password.max'                     => '20文字以内で入力してください',
+        'password.required'                => 'パスワードは必須です',
+
+        'password_confirmation.required'   => 'パスワードは必須です',
+        'password_confirmation.alpha_num'  => '英数字で入力してください',
+        'password_confirmation.min'        => '8文字以上で入力してください',
+        'password_confirmation.max'        => '20文字以内で入力してください',
+
+        'bio.max'                          => '150文字以内で入力してください',
+
+        'images.mines'                     => 'jpg,png,bmp,gif,svgの形式で選択してください'
+
+    ]);
 
     $user = Auth::user();
     $user->username = $request->username;
@@ -62,9 +78,8 @@ class UsersController extends Controller
     //古いプロフィール画像を削除
     if($request->hasFile('images')){
            // Storage::dalete('public/images' . $user->images);
-            //新しい画像を保存    
+           //新しい画像を保存
         $fileName = time(). '.' . $request->images->extension();
-        dd($fileName);
         $request->images->storeAs('public/images', $fileName);
         //ユーザーのプロフィール画像を更新
         $user->images = $fileName;
@@ -75,4 +90,4 @@ class UsersController extends Controller
     return redirect('/top');
 
    }
-}
+ }

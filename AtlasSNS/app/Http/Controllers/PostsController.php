@@ -31,7 +31,7 @@ class PostsController extends Controller
     //postsテーブルにの投稿内容を入れる
 
     $post = Post::all(); //全データの取り出し
-        return redirect('/top'); 
+        return redirect('/top');
 
 }
 
@@ -65,4 +65,19 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
+    //フォロー画面
+    //現在ユーザーがフォローしているユーザーの投稿の表示
+    public function follow_list(){
+        $user = Auth::user();
+        $post = $user->following()->with('posts')->get()->pluck('posts')->flatten()->sortByDesc('created_at');
+
+        return view('follows.followList', compact('posts'));
+    }
+
+    //フォロワー場面
+    public function follower_list(){
+        return view('follows.followerList');
+    }
+
 }
+
