@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Post;
 use Illuminate\Support\Facades\Storage;
 class UsersController extends Controller
 {
@@ -24,7 +25,7 @@ class UsersController extends Controller
 
     public function logout(){
         Auth::logout();
-        return url('/login');
+        return redirect('/login');
     }
 
    //プロフィール編集
@@ -36,7 +37,7 @@ class UsersController extends Controller
    public function update(Request $request){
     $validated = $request->validate([
         'username'                => 'required|string|min:2|max:12',
-        'mail'                    => 'required|min:5|max:40|email|unique:users',
+        'mail'                    => 'required|min:5|max:40|email|unique:users,mail,'.Auth::user()->mail.',mail',
         'password'                => 'required|alpha_num|min:8|max:20|confirmed',
         'password_confirmation'   => 'required|alpha_num|min:8|max:20',
         'bio'                     => 'max:150|nullable',
@@ -90,4 +91,14 @@ class UsersController extends Controller
     return redirect('/top');
 
    }
+
+    //それぞれのプロフィール画面
+    public function show($id){
+        $users = User::find($id);
+        $posts = Post::with('user')->get();
+        dd($posts);
+        //with('')でリレーションしたいテーブル名を記述すると、postとuserの全データの取り出し
+        return view('users.each_profile', compact('users','posts'));
+    }
+
  }

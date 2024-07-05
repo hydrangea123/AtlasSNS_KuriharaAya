@@ -32,8 +32,8 @@ Route::post('/top','PostsController@index');
 Route::post('/profile','UsersController@view')->name('profile.view');
 Route::get('/profile','UsersController@view')->name('profile.view');
 Route::post('/profile/update','UsersController@update')->name('profile.update');
-Route::get('/follow-list','PostsController@follow_list');
-Route::get('/follower-list','PostsController@follower_list');
+Route::get('/follow-list','FollowsController@follow_list');
+Route::get('/follower-list','FollowsController@follower_list');
 Route::get('/follower-profile','profileController@index');
 Route::get('/logout','UsersController@logout');
 });
@@ -55,5 +55,11 @@ Route::get('/search', 'UsersController@search');
 //フォロー、フォロー解除
 Route::post('/search/{user}/follow', 'FollowsController@follow')->name('follow');
 Route::delete('/search/{user}/unfollow', 'FollowsController@unfollow')->name('unfollow');
+
+//フォロされているのそれぞれのプロフィール画面
+Route::get('/show/{id}', 'UsersController@show')->name('each_profile');
+
+//Route::post('/show/{id}/follow', 'FollowsController@follow')->name('follow');
+//Route::delete('/show/{id}/unfollow', 'FollowsController@unfollow')->name('unfollow');
 
 

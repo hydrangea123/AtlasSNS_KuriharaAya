@@ -20,7 +20,7 @@
     <div class="post_flex">
 
         <div class="post_top">
-            <div><img src="{{ asset('storage/images/'. Auth::user()->images) }}" alt="icon" class="icon" width="55px"></div>
+            <div><img src="{{ asset('storage/images/'. $post->user->images) }}" alt="icon" class="icon" width="55px"></div>
         </div>
 
         <div class="post_middle">

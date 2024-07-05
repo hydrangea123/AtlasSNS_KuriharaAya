@@ -59,6 +59,8 @@ h1 {
 }
 
 
+
+
 /*アコーディオン */
 .menu-btn {
     width: 35px;
@@ -192,7 +194,7 @@ textarea {
 }
 
 .post_middle{
-    margin-right: 670px;
+    width: 700px;
 }
 
 .post_username{
@@ -206,9 +208,17 @@ textarea {
     top: 4px
 }
 
-textarea {
+.post-area{
     border: none;
 
+    /* 右下の//（サイズ変更機能）を消す　*/
+    resize: none;
+
+    /* クリックした際の枠線が出てくるのを隠す　*/
+    outline: none;
+}
+
+textarea {
     /* 右下の//（サイズ変更機能）を消す　*/
     resize: none;
 
@@ -335,9 +345,23 @@ textarea {
 
 .search_word{
     padding-top: 35px;
-    margin-left: 250px;
+    margin-left: 300px;
     font-size: 20px;
 }
+
+.userSearchList{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    padding: 10px 300px 0 300px;
+}
+
+.userSearchList p{
+    position: relative;
+    right: 120px;
+    font-size: 20px;;
+}
+
 
 /* フォロー機能 */
 .btn_follow{
@@ -351,18 +375,64 @@ textarea {
 
 }
 
+/* フォロー・フォロワーリスト */
+.list_flex{
+    display: flex;
+}
+
+.icon_list{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 60px;
+    position: relative;
+    bottom: 35px;
+}
+
+.follow_images{
+    padding-right: 10px;
+}
+
+.follow_posts{
+    display: flex;
+}
 /* プロフィール編集 */
 .profile_container{
     padding-left: 350px;
-    padding-top: 70px;
+    padding-top: 30px;
+    padding-right: 200px;
+}
+
+.form-box{
+    margin-bottom: 60px;
 }
 
 .form-group{
-    margin: 0 auto;
+    margin: 0 auto 10px;
     font-size: 1.3em;
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 60px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-control,#fileSelect{
+    width: 400px;
+    height: 45px;
+    background-color: #d3d3d347;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: gray;
+    border-width: 1.5px;
+}
+
+#fileSelect{
+    height: 90px;
+}
+
+.file_text{
+    background: white;
+    padding: 0.5em 1.8em;
+    color: grey;
+    font-size: 20px;
 }
 
 .validation {
@@ -371,4 +441,26 @@ textarea {
     color: #FA5C65;
     margin: 0.3rem;
     font-weight: bold;
+    margin-top: 10px;
+    text-align: right;
     }
+
+.button{
+    background-color:#fc203d;
+    font-size: 110%;
+    width: 170px;
+    display: block;
+    border: none;
+    border-radius: 8px;
+    height: 40px;
+    color: white;
+    margin-left: 180px;
+}
+
+.validation{
+    text-align: right;
+    margin-top: 10px;
+}
+
+
+

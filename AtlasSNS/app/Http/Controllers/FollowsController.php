@@ -9,19 +9,11 @@ use App\User;
 use App\Post;
 class FollowsController extends Controller
 {
-    //
-    public function followList(){
-        return view('follows.followList');
-    }
-    public function followerList(){
-        return view('follows.followerList');
-    }
-
 
     //フォロー
     public function follow(User $user){
         $follower = auth()->user();
-    
+
         //フォローしているか
         $is_following = $follower->isFollowing($user->id);
         if(!$is_following){
@@ -44,5 +36,27 @@ class FollowsController extends Controller
         }
     }
 
+
+    //フォロー画面
+    //ログインーザーがフォローしているユーザーの投稿の表示
+    public function follow_list(){
+        $followedUsers = Auth::user()->following()->pluck('followed_id');
+        $posts = Post::whereIn('user_id',$followedUsers)->orderBy('created_at', 'desc')->get();
+        //dd($posts);
+        return view('follows.followList', compact('posts'));
     }
 
+
+
+    //フォロワー場面
+    //ユーザーがフォローされているユーザーの投稿の表示
+    public function follower_list(){
+        $followingUsers = Auth::user()->followed()->pluck('following_id');
+        $posts = Post::whereIn('user_id',$followingUsers)->orderBy('created_at', 'desc')->get();
+        //dd($posts);
+        return view('follows.followerList', compact('posts'));
+    }
+
+
+
+}

@@ -15,27 +15,26 @@
  <!-- 検索結果表示エリア -->
   @foreach ($users as $user)
     @if ($user->id !== Auth::user()->id)
-    <div class="userSearchList">
-      <p>{{ $user->images }}</p>
-      <p>{{ $user->username }}</p>
-    </div>
+        <div class="userSearchList">
+          <div><img src="{{ asset('storage/images/'. $user->images) }}" alt="icon" class="icon" width="55px"></div>
+          <p>{{ $user->username }}</p>
 
-    <div>
-      @if(auth()->user()->isFollowing($user->id))
-        <form action="{{ route('unfollow',['user' => $user->id]) }}" method="post">
-          {{ csrf_field() }}
-          {{ method_field('delete') }}
+          @if(auth()->user()->isFollowing($user->id))
+            <form action="{{ route('unfollow',['user' => $user->id]) }}" method="post">
+              {{ csrf_field() }}
+              {{ method_field('delete') }}
 
-          <button type="submit" class="btn btn_follow">フォロー解除</button>
-        </form>
-      @else
-      <form action="{{ route('follow',['user' => $user->id] )}}" method="post">
-        {{ csrf_field() }}
+              <button type="submit" class="btn btn_follow">フォロー解除</button>
+            </form>
+          @else
+          <form action="{{ route('follow',['user' => $user->id] )}}" method="post">
+            {{ csrf_field() }}
 
-        <button type="submit" class="btn btn_folloing">フォローする</button>
-      </form>
-      @endif
-    </div>
+            <button type="submit" class="btn btn_folloing">フォローする</button>
+          </form>
+          @endif
+        </div>
+
     @endif
   @endforeach
 
