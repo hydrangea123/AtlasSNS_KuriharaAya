@@ -4,7 +4,6 @@
 <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/login']) !!}
 
-<div class="background_container">
     <div class="background_color">
           <p>AtlasSNSへようこそ</p>
           <div class="form">
@@ -21,7 +20,7 @@
 
       <p><a href="/register">新規ユーザーの方はこちら</a></p>
     </div>
-</div>
+
 {!! Form::close() !!}
 
 @endsection

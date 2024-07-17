@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\User;
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -11,12 +11,56 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-         DB::table('users')->insert([
-            'username' => 'Atlas一郎',
-            'mail' => 'xxxx@gmail.com',
-            'password' => bcrypt('Atlas1111'),
-            'bio' => 'はじめまして！'
-         ]);
+      User::insert([
+      [
+        'username' => 'kurihara',
+        'email' => 'a@gmail.com',
+        'password' =>'aaaaaaaaaa',
+        'bio' => 'はじめまして！',
+        'images' => 'icon1.png',
+      ],
+      [
+        'username' => 'takada',
+        'email' => 'i@gmail.com',
+        'password' =>'aaaaaaaaaa',
+        'bio' => 'はじめまして！',
+        'images' => 'icon2.png',
+      ],
+      [
+        'username' => 'kawasaki',
+        'email' => 'u@gmail.com',
+        'password' =>'aaaaaaaaaa',
+        'bio' => 'はじめまして！',
+        'images' => 'icon3.png',
+      ],
+      [
+        'username' => 'tida',
+        'email' => 'e@gmail.com',
+        'password' =>'aaaaaaaaaa',
+        'bio' => 'はじめまして！',
+        'images' => 'icon4.png',
+      ],
+      [
+        'username' => 'haeada',
+        'email' => 'o@gmail.com',
+        'password' =>'aaaaaaaaaa',
+        'bio' => 'はじめまして！',
+        'images' => 'icon5.png',
+      ],
+      [
+        'username' => 'kosida',
+        'email' => 'k@gmail.com',
+        'password' =>'aaaaaaaaaa',
+        'bio' => 'はじめまして！',
+        'images' => 'icon6.png',
+      ],
+      [
+        'username' => 'haeada',
+        'email' => 'j@gmail.com',
+        'password' =>'aaaaaaaaaa',
+        'bio' => 'はじめまして！',
+        'images' => 'icon7.png',
+      ],
+    ]);
     }
 }

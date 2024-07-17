@@ -2,7 +2,7 @@
 
 @section('content')
             <div class="follow_images">
-                <img src="{{ asset('storage/images/'. $posts->user->images) }}" alt="icon" class="icon" width="55px">
+                <img src="{{ asset('storage/images/'. $posts->images) }}" alt="icon" class="icon" width="55px">
             </div>
 
             <div class="item">
@@ -35,11 +35,11 @@
         <div class="post_flex">
           <div class="follow_posts">
             <div class="post_top">
-                <div><img src="{{ asset('storage/images/'. $post->user->images) }}" alt="icon" class="icon" width="55px"></div>
+                <div><img src="{{ asset('storage/images/'. $users->images) }}" alt="icon" class="icon" width="55px"></div>
             </div>
 
             <div class="post_middle">
-                <div  class="post_username">{{ $post->user->username }}</div>
+                <div  class="post_username">{{ $users->username }}</div>
                 <div class="post_area">{{ $post->post }}</div>
             </div>
 
@@ -48,8 +48,6 @@
             </div>
           </div>
         </div>
-
-
     @endforeach
 </div>
 @endsection

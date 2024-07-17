@@ -95,8 +95,9 @@ class UsersController extends Controller
     //それぞれのプロフィール画面
     public function show($id){
         $users = User::find($id);
-        $posts = Post::with('user')->get();
-        dd($posts);
+        $posts = Post::where('user_id',$id)->get();
+
+        //dd($posts);
         //with('')でリレーションしたいテーブル名を記述すると、postとuserの全データの取り出し
         return view('users.each_profile', compact('users','posts'));
     }
