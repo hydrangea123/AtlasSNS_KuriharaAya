@@ -83,7 +83,7 @@ class UsersController extends Controller
         $fileName = time(). '.' . $request->images->extension();
         $request->images->storeAs('public/images', $fileName);
         //ユーザーのプロフィール画像を更新
-        $user->images = $fileName;
+        $user->images = ('storage/images'.$fileName);
     }
 
     $user->save();

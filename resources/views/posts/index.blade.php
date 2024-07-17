@@ -3,7 +3,7 @@
 @section('content')
 <div class="form-area">
     <div class="form-area-flex">
-        <div style="width:55px;"><img src="{{ asset('storage/images/'. Auth::user()->images) }}" alt="icon" class="icon" width="55px"></div>
+        <div style="width:55px;"><img src="{{ asset( Auth::user()->images) }}" alt="icon" class="icon" width="55px"></div>
 
         {!! Form::open(['url' => '/posts']) !!}
 
@@ -12,7 +12,7 @@
         <input type="image" src="/images/post.png" alt="送信ボタン" width="40px" class="post-btn">
     </div>
 </div>
-
+<img src="{{ asset('storage/images/') }}" alt="" width="55px" height="55px">
     <!-- 投稿表示エリア -->
 <div class="posted-area">
 
@@ -20,7 +20,7 @@
     <div class="post_flex">
 
         <div class="post_top">
-            <div><img src="{{ asset('storage/images/'. $post->user->images) }}" alt="icon" class="icon" width="55px"></div>
+            <div><img src="{{ asset($post->user->images) }}" alt="icon" class="icon" width="55px"></div>
         </div>
 
         <div class="post_middle">
