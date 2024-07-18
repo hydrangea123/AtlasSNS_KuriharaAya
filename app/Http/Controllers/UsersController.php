@@ -35,13 +35,14 @@ class UsersController extends Controller
    }
 
    public function update(Request $request){
+    //dd($request);
     $validated = $request->validate([
         'username'                => 'required|string|min:2|max:12',
         'mail'                    => 'required|min:5|max:40|email|unique:users,mail,'.Auth::user()->mail.',mail',
         'password'                => 'required|alpha_num|min:8|max:20|confirmed',
         'password_confirmation'   => 'required|alpha_num|min:8|max:20',
         'bio'                     => 'max:150|nullable',
-        'images'                  => 'mimes:jpg,png,bmp,gif,svg|nullable'
+        'images'                  => 'image|nullable'
     ],  $errors = [
         'username.required'                => 'ユーザー名は必須です',
         'username.string'                  => '文字列で入力してください',
@@ -66,7 +67,7 @@ class UsersController extends Controller
 
         'bio.max'                          => '150文字以内で入力してください',
 
-        'images.mines'                     => 'jpg,png,bmp,gif,svgの形式で選択してください'
+        'images.image'                     => 'jpg,png,bmp,gif,svgの形式で選択してください'
 
     ]);
 
@@ -83,7 +84,7 @@ class UsersController extends Controller
         $fileName = time(). '.' . $request->images->extension();
         $request->images->storeAs('public/images', $fileName);
         //ユーザーのプロフィール画像を更新
-        $user->images = ('storage/images'.$fileName);
+        $user->images = ('storage/images/'.$fileName);
     }
 
     $user->save();

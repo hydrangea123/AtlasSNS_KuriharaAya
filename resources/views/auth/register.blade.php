@@ -4,7 +4,7 @@
 <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/register']) !!}
 
-<div class="inner">
+<div class="background_color">
 <h2>新規ユーザー登録</h2>
 
 <div class="box">

@@ -34,7 +34,7 @@ header a {
     min-height: 100vh;
 }
 
-#side-bar {
+#sideBar {
     border-left: 1px solid #727272;
     width: 325px;
     min-height: 100vh;
@@ -45,16 +45,17 @@ h1 {
 }
 
 .icon {
+    width: 55px;
     position: relative;
     top: 20px;
     right: 20px;
 }
 
-.header-right {
+.header_right {
     display: flex;
 }
 
-.header-right p {
+.header_right p {
     padding: 40px 0px;
 }
 
@@ -62,7 +63,7 @@ h1 {
 
 
 /*アコーディオン */
-.menu-btn {
+.menu_btn {
     width: 35px;
     height: 35px;
     position: absolute;
@@ -73,7 +74,7 @@ h1 {
 }
 
 
-.menu-btn::before {
+.menu_btn::before {
     position: absolute;
     content: "";
     top: 25%;
@@ -86,7 +87,7 @@ h1 {
     transition: 0.3s ease;
 }
 
-.menu-btn.is-open::before {
+.menu_btn.is_open::before {
     top: 60%;
     transform: translate(-50%, -60%) rotate(-45deg);
 }
@@ -127,7 +128,7 @@ h1 {
     }
 
 
-.menu.is-open {
+.menu.is_open {
     opacity: 1;
     transform: translateY(0);
     pointer-events: initial;
@@ -143,30 +144,24 @@ h1 {
 
 textarea {
     resize: none;
-    width: 800px;
+    width: 700px;
     height: 100px;
     font-family: inherit;
     font-size: 100%;
 }
 
-.form-area {
+.form_area {
     padding-left: 120px;
     margin-top: 40px;
     border-bottom: solid 8px;
     border-bottom-color: lightgray;
 }
 
-.post-area{
-    margin-left: 50px;
-    position: relative;
-    bottom: 40px;
-}
-
-.post-btn {
+.post_btn {
     border-radius: 3px;
     height: 40px;
     margin-top: auto;
-    margin-bottom: 42px;
+    margin-bottom: 62px;
 }
 
 .post_flex{
@@ -183,14 +178,13 @@ textarea {
     bottom: 25px;
 }
 
-.form-area-flex{
+.form_area_flex{
     height: 160px;
 }
 
-.form-flex {
+.form_flex {
     display: flex;
     justify-content: end;
-    padding-top: 100px;
 }
 
 .post_middle{
@@ -208,7 +202,7 @@ textarea {
     top: 4px
 }
 
-.post-area{
+.post_area{
     border: none;
 
     /* 右下の//（サイズ変更機能）を消す　*/
@@ -263,13 +257,14 @@ textarea {
     width: 60%;
 }
 
-.modal-submit {
+.modal_submit {
+    width: 40px;
     display: block;
     margin: 0 auto;
 }
 
 /* サイドバー */
-#side-bar {
+#side_bar {
     padding-top: 25px;
 }
 
@@ -293,24 +288,25 @@ textarea {
 #confirm {
     border-bottom: solid 1px #727272;
     padding-left: 15px;
+    padding-top: 25px;
 }
 
-.side-flex {
+.side_flex {
     display: flex;
     justify-content: space-between;
     padding-right: 50px;
 }
 
-.side-flex p {
+.side_flex p {
     margin-top: 25px;
     margin-bottom: 25px;
 }
 
-.side-flex p:last-child{
+.side_flex p:last-child{
     margin-left: 40px;
 }
 
-.search-btn {
+.search_btn {
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
@@ -318,14 +314,14 @@ textarea {
 }
 
 /* 検索 */
-.search-area {
+.search_area {
     border-bottom: solid 8px;
     border-bottom-color: lightgray;
     padding: 50px 0 50px 50px;
     display: flex;
 }
 
-.search-area a img {
+.search_area a img {
     width: 46px;
     height: 46px;
     border-radius: 3px;
@@ -349,14 +345,14 @@ textarea {
     font-size: 20px;
 }
 
-.userSearchList{
+.user_search_list{
     display: flex;
     align-items: baseline;
     justify-content: space-around;
     padding: 10px 300px 0 300px;
 }
 
-.userSearchList p{
+.user_search_list p{
     position: relative;
     right: 120px;
     font-size: 20px;;
@@ -402,11 +398,11 @@ textarea {
     padding-right: 200px;
 }
 
-.form-box{
+.form_box{
     margin-bottom: 60px;
 }
 
-.form-group{
+.form_group{
     margin: 0 auto 10px;
     font-size: 1.3em;
     display: flex;
@@ -414,7 +410,7 @@ textarea {
     justify-content: space-between;
 }
 
-.form-control,#fileSelect{
+.form_control,#fileSelect{
     width: 400px;
     height: 45px;
     background-color: #d3d3d347;

@@ -32,9 +32,9 @@ Route::post('/top','PostsController@index');
 Route::post('/profile','UsersController@view')->name('profile.view');
 Route::get('/profile','UsersController@view')->name('profile.view');
 Route::post('/profile/update','UsersController@update')->name('profile.update');
-Route::get('/follow-list','FollowsController@follow_list');
-Route::get('/follower-list','FollowsController@follower_list');
-Route::get('/follower-profile','profileController@index');
+Route::get('/follow_list','FollowsController@follow_list');
+Route::get('/follower_list','FollowsController@follower_list');
+Route::get('/follower_profile','profileController@index');
 Route::get('/logout','UsersController@logout');
 });
 

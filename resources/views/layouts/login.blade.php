@@ -23,14 +23,14 @@
 </head>
 <body>
     <header>
-        <div class="header-left">
+        <div class="header_left">
             <h1><a href="/top"><img src="/images/atlas.png" width=110px></a></h1>
         </div>
 
-        <div class="header-right">
+        <div class="header_right">
             <div><p style="color:#fff; font-size :1.2em; margin-right: 35px;">{{ Auth::user()->username }}&nbsp;さん</p></div>
                 <div class="accordion">
-                    <button type="button" class="menu-btn"></button>
+                    <button type="button" class="menu_btn"></button>
                    <nav class="menu">
                        <ul>
                            <li><a href="/top">HOME</a></li>
@@ -48,22 +48,22 @@
         <div id="container">
             @yield('content')
         </div>
-        <div id="side-bar">
+        <div id="sideBar">
             <div id="confirm">
                 <p>{{ Auth::user()->username }}さんの</p>
-                <div class="side-flex">
+                <div class="side_flex">
                     <p>フォロー数</p>
                     <p>{{ Auth::user()->following->count() }}人</p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
+                <p class="btn"><a href="/follow_list">フォローリスト</a></p>
 
-                <div class="side-flex followCount">
+                <div class="side_flex followCount">
                     <p class="followCount_text">フォロワー数</p>
                     <p>{{ Auth::user()->followed->count() }}人</p>
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <p class="btn"><a href="/follower_list">フォロワーリスト</a></p>
             </div>
-            <p class="btn search-btn"><a href="/search">ユーザー検索</a></p>
+            <p class="btn search_btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
 

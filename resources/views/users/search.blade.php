@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-<div class="search-area">
+<div class="search_area">
   <form action="/search" method="post">
     @csrf
       <input type="text" name="keyword" id="search" placeholder="ユーザー名" class="search_box">
@@ -15,7 +15,7 @@
  <!-- 検索結果表示エリア -->
   @foreach ($users as $user)
     @if ($user->id !== Auth::user()->id)
-        <div class="userSearchList">
+        <div class="user_search_list">
           <div><img src="{{ asset('storage/images/'. $user->images) }}" alt="icon" class="icon" width="55px"></div>
           <p>{{ $user->username }}</p>
 

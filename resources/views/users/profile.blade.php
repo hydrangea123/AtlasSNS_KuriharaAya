@@ -8,15 +8,15 @@
       </div>
     @endif
 
-    <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form_data">
       @csrf
 
       <div style="position: relative;right: 70px;top: 15px; width: 55px"><img src="{{ asset('storage/images/'. Auth::user()->images) }}" alt="icon" class="icon" width="55px"></div>
 
       <div class="form-box">
-            <div class="form-group">
+            <div class="form_group">
               <label for="name">ユーザー名</label>
-              <input type="text" name="username" id="username" class="form-control" value="{{ old('name', $user->username) }}">
+              <input type="text" name="username" id="username" class="form_control" value="{{ old('name', $user->username) }}">
             </div>
 
              <div class="validation">
@@ -26,10 +26,10 @@
             </div>
       </div>
 
-      <div class="form-box">
-            <div class="form-group">
+      <div class="form_box">
+            <div class="form_group">
                 <label for="mail">メールアドレス</label>
-                <input type="mail" name="mail" id="mail" class="form-control" value="{{ old('mail', $user->mail) }}">
+                <input type="mail" name="mail" id="mail" class="form_control" value="{{ old('mail', $user->mail) }}">
             </div>
 
             <div class="validation">
@@ -39,10 +39,10 @@
             </div>
         </div>
 
-      <div class="form-box">
-            <div class="form-group">
+      <div class="form_box">
+            <div class="form_group">
                 <label for="password">パスワード</label>
-                <input type="password" name="password" class="form-control">
+                <input type="password" name="password" class="form_control">
             </div>
 
             <div class="validation">
@@ -52,10 +52,10 @@
             </div>
         </div>
 
-        <div class="form-box">
-            <div class="form-group">
+        <div class="form_box">
+            <div class="form_group">
                 <label for="password_confirmation">パスワード確認</label>
-                <input type="password" name="password_confirmation" class="form-control">
+                <input type="password" name="password_confirmation" class="form_control">
             </div>
 
             <div class="validation">
@@ -65,10 +65,10 @@
             </div>
         </div>
 
-        <div class="form-box">
-            <div class="form-group">
+        <div class="form_box">
+            <div class="form_group">
                 <label for="bio">自己紹介</label>
-                <textarea name="bio" id="bio" class="form-control">{{ old('bio', $user->bio) }}</textarea>
+                <textarea name="bio" id="bio" class="form_control">{{ old('bio', $user->bio) }}</textarea>
             </div>
 
             <div class="validation">
@@ -78,15 +78,15 @@
             </div>
         </div>
 
-        <div class="form-box">
-            <div class="form-group">
+        <div class="form_box">
+            <div class="form_group">
                 <label for="profile_picture">アイコン画像</label>
                 <input
                     type="file"
                     id="fileElem"
                     accept="image/*"
                     style="display:none"
-                    name="images"/>
+                    name="images">
 
                 <button id="fileSelect" type="button"><span class="file_text">ファイルを選択</span></button>
             </div>
