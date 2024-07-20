@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <!--IEブラウザ対策-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
@@ -21,26 +22,29 @@
 
 
 </head>
+
 <body>
     <header>
         <div class="header_left">
-            <h1><a href="/top"><img src="/images/atlas.png" width=110px></a></h1>
+            <h1><a href="/top"><img src="/images/atlas.png"></a></h1>
         </div>
 
         <div class="header_right">
-            <div><p style="color:#fff; font-size :1.2em; margin-right: 35px;">{{ Auth::user()->username }}&nbsp;さん</p></div>
-                <div class="accordion">
-                    <button type="button" class="menu_btn"></button>
-                   <nav class="menu">
-                       <ul>
-                           <li><a href="/top">HOME</a></li>
-                           <li><a href="/profile">プロフィール編集</a></li>
-                           <li><a href="/logout">ログアウト</a></li>
-                       </ul>
-                   </nav>
-                </div>
+            <div>
+                <p>{{ Auth::user()->username }}&nbsp;さん</p>
+            </div>
+            <div class="accordion">
+                <button type="button" class="menu_btn"></button>
+                <nav class="menu">
+                    <ul>
+                        <li><a href="/top">HOME</a></li>
+                        <li><a href="/profile">プロフィール編集</a></li>
+                        <li><a href="/logout">ログアウト</a></li>
+                    </ul>
+                </nav>
+            </div>
 
-            <div><img src="{{ asset('storage/images/'. Auth::user()->images) }}" alt="icon" class="icon" width="55px"></div>
+            <div><img src="{{ asset(Auth::user()->images) }}" alt="icon" class="icon"></div>
         </div>
     </header>
 
@@ -71,7 +75,8 @@
     <footer>
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="/js/script.js"></script>
 
 </body>
+
 </html>

@@ -1,10 +1,11 @@
 @charset "utf-8";
-body{
+
+body {
     height: 100%;
 }
 
 #container {
-    width: 100%;
+    width: 79%;
     border-right: solid 1px;
 }
 
@@ -44,6 +45,10 @@ h1 {
     padding: 30px;
 }
 
+h1 img {
+    width: 110px;
+}
+
 .icon {
     width: 55px;
     position: relative;
@@ -57,6 +62,8 @@ h1 {
 
 .header_right p {
     padding: 40px 0px;
+    color: #fff;
+    font-size: 1.2em;
 }
 
 
@@ -98,34 +105,34 @@ h1 {
     position: absolute;
     top: 60px;
     right: 0;
-    width: 265px;
+    width: 320px;
     background-color: #fff;
     opacity: 0;
     transition: .3s ease-in-out;
     pointer-events: none;
     transform: translateY(-30px);
     border: solid 2px navy;
-    }
+}
 
-    li {
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-bottom: solid 2px navy;
-    }
+li {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 2px navy;
+}
 
-    li:last-child {
-        border-bottom: 0;
-    }
+li:last-child {
+    border-bottom: 0;
+}
 
-    li:hover {
-        background-color: navy;
-    }
+li:hover {
+    background-color: navy;
+}
 
-    li:hover a {
-        color: #fff;
-    }
+li:hover a {
+    color: #fff;
+}
 
 
 .menu.is_open {
@@ -158,28 +165,46 @@ textarea {
 }
 
 .post_btn {
-    border-radius: 3px;
+    width: 40px;
     height: 40px;
-    margin-top: auto;
-    margin-bottom: 62px;
 }
 
-.post_flex{
+.post_send_btn {
+    border-radius: 3px;
+    position: relative;
+    left: 720px;
+    bottom: 40px;
+}
+
+.delete_btn {
+    position: relative;
+    top: 4px;
+}
+
+
+
+.post_flex {
     display: flex;
     justify-content: space-between;
     margin-top: 35px;
-    padding: 0 30px 15px 200px;
+    padding: 0 30px 15px 135px;
     border-bottom: solid 1px #989898;
 
 }
 
-.post_top{
+.post_top {
     position: relative;
     bottom: 25px;
 }
 
-.form_area_flex{
+.form_area_flex {
     height: 160px;
+    display: flex;
+}
+
+.form_area_flex {
+    position: relative;
+    bottom: 10px;
 }
 
 .form_flex {
@@ -187,22 +212,36 @@ textarea {
     justify-content: end;
 }
 
-.post_middle{
-    width: 700px;
+.form_area_icon {
+    width: 55px;
+    position: relative;
+    right: 15px;
 }
 
-.post_username{
+.form_area_flex form {
+    position: relative;
+    top: 10px;
+}
+
+.post_middle {
+    width: 760px;
+}
+
+.post_username {
     margin-bottom: 15px;
 }
 
+.time {
+    margin-bottom: 30px;
+}
 
-.edit_btn{
+.edit_btn {
     padding-right: 13px;
     position: relative;
     top: 4px
 }
 
-.post_area{
+.post_area {
     border: none;
 
     /* 右下の//（サイズ変更機能）を消す　*/
@@ -257,6 +296,11 @@ textarea {
     width: 60%;
 }
 
+.modal_post {
+    width: 100%;
+    border: solid 1px;
+}
+
 .modal_submit {
     width: 40px;
     display: block;
@@ -270,15 +314,16 @@ textarea {
 
 .btn {
     background-color: #186AC9;
-    padding: 15px 23px;
+    padding: 12px 2px;
     margin-bottom: 25px;
     border-radius: 10px;
     text-align: center;
     display: block;
     margin-left: auto;
-    margin-right: 0;
+    margin-right: 15px;
     width: 10em;
     border: none;
+    font-size: 0.9em;
 }
 
 .btn a {
@@ -287,14 +332,14 @@ textarea {
 
 #confirm {
     border-bottom: solid 1px #727272;
-    padding-left: 15px;
+    padding-left: 25px;
     padding-top: 25px;
 }
 
 .side_flex {
     display: flex;
     justify-content: space-between;
-    padding-right: 50px;
+    padding-right: 130px;
 }
 
 .side_flex p {
@@ -302,7 +347,7 @@ textarea {
     margin-bottom: 25px;
 }
 
-.side_flex p:last-child{
+.side_flex p:last-child {
     margin-left: 40px;
 }
 
@@ -327,56 +372,63 @@ textarea {
     border-radius: 3px;
 }
 
-.search_box{
+.search_box {
     width: 300px;
     height: 40px;
 }
 
-.search_icon{
+.search_icon {
     border-radius: 5px;
     position: relative;
     top: 19px;
     margin-left: 5px;
 }
 
-.search_word{
+.search_word {
     padding-top: 35px;
-    margin-left: 300px;
+    margin-left: 255px;
     font-size: 20px;
 }
 
-.user_search_list{
-    display: flex;
-    align-items: baseline;
-    justify-content: space-around;
-    padding: 10px 300px 0 300px;
+.search_follow_form {
+    margin-left: auto;
+    margin-right: 145px;
 }
 
-.user_search_list p{
-    position: relative;
-    right: 120px;
-    font-size: 20px;;
+.user_search_list {
+    display: flex;
+    align-items: baseline;
+    padding: 10px 195px 0 316px;
+}
+
+.user_search_list p {
+    font-size: 20px;
+    margin-left: 5px;
 }
 
 
 /* フォロー機能 */
-.btn_follow{
+.btn_follow {
     background-color: rgb(214, 75, 75);
     color: #fff;
 }
 
-.btn_folloing{
+.btn_folloing {
     background-color: rgba(92, 184, 240, 0.819);
     color: #fff;
 
 }
 
 /* フォロー・フォロワーリスト */
-.list_flex{
+.list_flex {
     display: flex;
 }
 
-.icon_list{
+.list_flex p {
+    font-size: 20px;
+}
+
+.icon_list {
     display: flex;
     flex-wrap: wrap;
     margin-left: 60px;
@@ -384,25 +436,33 @@ textarea {
     bottom: 35px;
 }
 
-.follow_images{
+.follow_images {
     padding-right: 10px;
 }
 
-.follow_posts{
+.follow_posts {
     display: flex;
 }
+
 /* プロフィール編集 */
-.profile_container{
+.profile_container {
     padding-left: 350px;
     padding-top: 30px;
     padding-right: 200px;
 }
 
-.form_box{
+.profile_icon {
+    position: relative;
+    right: 78px;
+    top: 48px;
+    width: 55px
+}
+
+.form_box {
     margin-bottom: 60px;
 }
 
-.form_group{
+.form_group {
     margin: 0 auto 10px;
     font-size: 1.3em;
     display: flex;
@@ -410,7 +470,8 @@ textarea {
     justify-content: space-between;
 }
 
-.form_control,#fileSelect{
+.form_control,
+#fileSelect {
     width: 400px;
     height: 45px;
     background-color: #d3d3d347;
@@ -420,11 +481,15 @@ textarea {
     border-width: 1.5px;
 }
 
-#fileSelect{
+#fileSelect {
     height: 90px;
 }
 
-.file_text{
+#fileElem {
+    display: none;
+}
+
+.file_text {
     background: white;
     padding: 0.5em 1.8em;
     color: grey;
@@ -439,10 +504,10 @@ textarea {
     font-weight: bold;
     margin-top: 10px;
     text-align: right;
-    }
+}
 
-.button{
-    background-color:#fc203d;
+.button {
+    background-color: #fc203d;
     font-size: 110%;
     width: 170px;
     display: block;
@@ -450,13 +515,36 @@ textarea {
     border-radius: 8px;
     height: 40px;
     color: white;
-    margin-left: 180px;
+    margin-left: 135px;
 }
 
-.validation{
+.validation {
     text-align: right;
     margin-top: 10px;
 }
 
+/* それぞれのプロフィール画面 */
 
+.follow_images {
+    margin-top: 17px;
+}
 
+.item {
+    margin-right: 90px;
+    font-size: 1.3em;
+    padding-top: 42px;
+}
+
+.item p:first-child {
+    margin-bottom: 15px;
+}
+
+.item_contents {
+    font-size: 1.3em;
+    padding-top: 42px;
+}
+
+.item_btn {
+    margin-left: 465px;
+    margin-top: 30px;
+}

@@ -35,7 +35,7 @@ class UsersController extends Controller
    }
 
    public function update(Request $request){
-    //dd($request);
+
     $validated = $request->validate([
         'username'                => 'required|string|min:2|max:12',
         'mail'                    => 'required|min:5|max:40|email|unique:users,mail,'.Auth::user()->mail.',mail',
@@ -98,8 +98,6 @@ class UsersController extends Controller
         $users = User::find($id);
         $posts = Post::where('user_id',$id)->get();
 
-        //dd($posts);
-        //with('')でリレーションしたいテーブル名を記述すると、postとuserの全データの取り出し
         return view('users.each_profile', compact('users','posts'));
     }
 

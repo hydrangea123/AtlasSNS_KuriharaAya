@@ -10,18 +10,20 @@ class PostsController extends Controller
 {
     //indexページの表示
     public function index(){
-        $posts = Post::with('user')->get();
+        $posts = Post::with('user')->latest()->get();
         //with('')でリレーションしたいテーブル名を記述すると、postとuserの全データの取り出し
         return view('posts.index',["posts" => $posts]); //blade内で使用するための記述
-}
+    }
 
     //投稿された内容を表示するページ
     public function create(Request $request){
-
-   //バリデーション
-    $request->validate([
+        $validated = $request->validate([
         'post' => 'required|min:1|max:150'
-    ]);
+        ], $errors = [
+            'post.required' => '必須項目です',
+            'post.min'      => '1文字以上で入力してください',
+            'post.max'      => '150文字以下で入力してください'
+        ]);
 
     //投稿内容を受け取って変数に入れる
     $id = Auth::id();
@@ -30,7 +32,6 @@ class PostsController extends Controller
     Post::insert(["user_id" => $id, "post" => $post]);
     //postsテーブルにの投稿内容を入れる
 
-    $post = Post::all(); //全データの取り出し
         return redirect('/top');
 
 }
@@ -60,8 +61,7 @@ class PostsController extends Controller
 
     //削除機能
      public function destroy($id){
-        $post = Post::find($id);
-        $post->delete();
+        Post::where('id', $id)->delete();
         return redirect('/top');
     }
 

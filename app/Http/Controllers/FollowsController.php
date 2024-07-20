@@ -42,7 +42,7 @@ class FollowsController extends Controller
     public function follow_list(){
         $followedUsers = Auth::user()->following()->pluck('followed_id');
         $posts = Post::whereIn('user_id',$followedUsers)->orderBy('created_at', 'desc')->get();
-        //dd($posts);
+
         return view('follows.followList', compact('posts'));
     }
 
@@ -53,7 +53,7 @@ class FollowsController extends Controller
     public function follower_list(){
         $followingUsers = Auth::user()->followed()->pluck('following_id');
         $posts = Post::whereIn('user_id',$followingUsers)->orderBy('created_at', 'desc')->get();
-        //dd($posts);
+
         return view('follows.followerList', compact('posts'));
     }
 
