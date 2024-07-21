@@ -28,6 +28,9 @@ header p {
     margin-top: 60px;
 }
 
+h2 {
+    font-size: 120%;
+}
 
 .background_color {
     display: inline-block;
@@ -43,13 +46,12 @@ header p {
 
 
 .background_color p:first-child {
-    font-size: 120%;
     position: relative;
     z-index: 2;
 
 }
 
-.background_color p:last-child {
+.under_line {
     margin-top: 20px;
     text-decoration: underline;
     position: relative;
@@ -57,7 +59,12 @@ header p {
 
 }
 
-form{
+.add_top p:first-child,
+.add_bottom p:first-child {
+    margin-bottom: 6px;
+}
+
+form {
     color: white;
     display: inline-block;
     margin-bottom: 20px;
@@ -89,7 +96,7 @@ label {
     display: block;
 }
 
-input{
+input {
     margin-top: 5px;
     border: none;
     border-radius: 5px;
@@ -97,14 +104,14 @@ input{
     height: 40px;
 }
 
-button{
+button {
     margin-top: 5px;
     border: none;
     border-radius: 5px;
     height: 40px;
 }
 
-.btn_right{
+.btn_right {
     width: 120px;
     display: block;
     margin-left: auto;
@@ -124,7 +131,7 @@ button{
 
 }
 
-.add_btn a{
+.add_btn a {
     position: relative;
     top: 9px;
 }
@@ -136,12 +143,9 @@ button{
 
 }
 
-.add_top{
+.add_top {
     margin-bottom: 40px;
     font-weight: bold;
     line-height: 1.3em;
 
 }
-
-
-

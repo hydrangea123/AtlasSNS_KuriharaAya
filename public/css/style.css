@@ -24,7 +24,8 @@ header {
 }
 
 header a {
-    display: inline-block;
+    display: block;
+    padding: 30px;
 }
 
 /* main content */
@@ -115,10 +116,6 @@ h1 img {
 }
 
 li {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-bottom: solid 2px navy;
 }
 

@@ -59,7 +59,5 @@ Route::delete('/search/{user}/unfollow', 'FollowsController@unfollow')->name('un
 //フォロされているのそれぞれのプロフィール画面
 Route::get('/show/{id}', 'UsersController@show')->name('each_profile');
 
-//Route::post('/show/{id}/follow', 'FollowsController@follow')->name('follow');
-//Route::delete('/show/{id}/unfollow', 'FollowsController@unfollow')->name('unfollow');
 
 
