@@ -23,7 +23,7 @@ header {
     text-align: center;
 }
 
-header a {
+.header_right a {
     display: block;
     padding: 30px;
 }
